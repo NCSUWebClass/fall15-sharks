@@ -20,8 +20,11 @@ db = SQLAlchemy(app)
 @app.route("/")
 def home():
     return render_template('home.html', name='home')
+
+
+@app.route("/fossils")
 def virtualdig():
-	return render_template('virtualdig.html', name='virtualdig')
+    return render_template('virtualdig.html', name='virtualdig')
 
 
 ########################################################

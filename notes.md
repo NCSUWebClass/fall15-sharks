@@ -1,3 +1,13 @@
+#### Contact Info
+
+* Dr. Gates (terryagates@gmail.com)
+* Derek Schreiner  (dsschrei@ncsu.edu)
+* Daniel Alley  (dralley@ncsu.edu)
+* Kevin Reed  (krreed@ncsu.edu)
+* Eric Anderson  (ehander3@ncsu.edu)
+* William Pruett  (wepruett@ncsu.edu)
+* Remington Campbell  (racampbe@ncsu.edu)
+
 ### Meeting w/ Dr. Gates 9/23
 
 * Backdrop of "fossil soil" like that from Aurora dig (randomly selected)
@@ -31,3 +41,4 @@ Technologies
 * Flask
 * Angular.js
 
+### Group meeting 9/27

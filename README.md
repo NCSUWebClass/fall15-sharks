@@ -6,7 +6,7 @@ NC State University's Paleontology Research Lab and the North Carolina Museum of
  
 #### Client
 
-Dr. Bucky Gates
+Dr. Terry Gates
 
 #### Team Members
 
@@ -16,8 +16,6 @@ Dr. Bucky Gates
 * Eric Anderson
 * William Pruett
 * Remington Campbell
-
---------------------------------------------------
 
 ## Installation
 
