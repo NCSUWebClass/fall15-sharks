@@ -1,0 +1,9 @@
+#digarea {
+	background-image: url("../img/test-sediment.jpg");
+	background-size: cover;
+	height: 100%;
+}
+
+#digresults {
+	height: 100%;
+}
