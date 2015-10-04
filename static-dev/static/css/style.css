@@ -17,7 +17,7 @@ body > header > nav > ul > li > a {
 	font-size: 17px;
 	line-height: 50px;
 	text-decoration: none;
-	color: #000;
+	color: #fff;
 }
 
 body > header > nav > ul > li > a:hover {
@@ -27,7 +27,7 @@ body > header > nav > ul > li > a:hover {
 
 div#digarea {
 	width: 80%;
-	background-image: url("../img/test-sediment.jpg");
+	background-image: url("img/test-sediment.jpg");
 	background-size: cover;
 	float: right;
 }

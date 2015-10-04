@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Virtual Dig!</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="static/css/style.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header id="siteheader">
+		<nav>
+			<ul class="links">
+				<li><a href="{{ url_for('home') }}">Home</a></li>
+				<li><a href="{{ url_for('virtualdig') }}">Virtual Dig</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div id="digresults">
+	</div>
+	<div id="digarea">
+	</div>
+</body>
+</html>
