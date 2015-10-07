@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Citizen Science Vitual Dig</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="static/css/style.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header id="siteheader">
+		<nav>
+			<ul class="nav nav-pills">
+				<li><a href="{{ url_for('home') }}">Home</a></li>
+				<li><a href="{{ url_for('virtualdig') }}">Virtual Dig</a></li>
+				<li><a href="{{ url_for('measurements') }}">Measurements</a></li>
+				<li><a href="{{ url_for('stats') }}">Stats</a></li>
+				<li><a href="{{ url_for('contact') }}">Contact Us</a><li>
+			</ul>
+		</nav>
+	</header>
+	<div id="stats">
+		<h1>Compare your results to past results!</h1>
+		
+		<div class="col-sm-3">
+			<h3>Categories</h3>
+			<p>Teeth Found</p>
+			<p>Different Types of Teeth Found</p>
+			<p>Largest Tooth Found</p>
+			<p>Smallest Tooth Found</p>
+		</div>
+		<div class="col-sm-3">
+			<h3>Your results</h3>
+			<p>124312354</p>
+			<p>324</p>
+			<p>8 miles</p>
+			<p>10 micrometers</p>
+		</div>
+		<div class="col-sm-3">
+			<h3>Overall results</h3>
+			<p>235</p>
+			<p>4tw457</p>
+			<p>234 miles</p>
+			<p>1 micrometers</p>
+		</div>
+	</div>
+	<br/>
+	<div class="col-sm-9">
+		<p>You found 98% more teeth than the average participant! Wow!</p>
+	</div>
+	<br/>
+	<div class="col-sm-9">
+		<p>Insert graph of stuff here</p>
+	</div>
+</body>
+</html>
