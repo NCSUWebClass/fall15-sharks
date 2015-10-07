@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>Citizen Science Vitual Dig</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="static/css/style.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header id="siteheader">
+		<nav>
+			<ul class="nav nav-pills">
+				<li><a href="{{ url_for('home') }}">Home</a></li>
+				<li><a href="{{ url_for('virtualdig') }}">Virtual Dig</a></li>
+				<li><a href="{{ url_for('measurements') }}">Measurements</a></li>
+				<li><a href="{{ url_for('stats') }}">Stats</a></li>
+				<li><a href="{{ url_for('contact') }}">Contact Us</a><li>
+			</ul>
+		</nav>
+	</header>
+	<div id="introduction">
+		<h1>Welcome to the citizen science virtual fossil dig!</h1>
+		<a href="{{ url_for('virtualdig') }}"><h3>Start digging</h3></a>
+		<div class=".col-md-6">
+			<p>
+			Dig for shark teeth accross the coastal plain of North Carolina!
+			</p>
+			<img src="/images/measurement.jpg" alt="Measure the shark teeth">
+			<p>
+			Compare your collection with other students and the world!
+			</p>
+		</div>
+		<div class=".col-md-6">
+			<img src="/images/megalodan.jpg" alt="Shark attack!">
+			<p>
+			Measure your shark teeth and identify the family of shark it belongs to!
+			</p>
+		</div>
+	</div>
+</body>
+</html>
