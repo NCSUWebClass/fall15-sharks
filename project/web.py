@@ -3,8 +3,8 @@
 from flask import Flask, render_template, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
 
-import secrets
-import settings
+from . import secrets
+from . import settings
 
 ########################################################
 
