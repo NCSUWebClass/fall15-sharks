@@ -56,4 +56,3 @@ Alternatively, run the command ```bash run-prod.sh```
 2. Run the command ```python3.4 run.py```
 3. The site will be made available at http://0.0.0.0:8000/
 
-Alternatively, run the command ```bash run-dev.sh```
