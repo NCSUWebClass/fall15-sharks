@@ -33,7 +33,27 @@ Dr. Terry Gates
 
 #### Process
 
-1. Install Python 3, pip, and sqlite if they are not already installed
+1. Install Python 3, pip3, and sqlite if they are not already installed
 2. Clone the repository
-3. In the repository folder, run the command ```pip3 install -r requirements.pip```.  This will install the necessary Python libraries
-4. Run the command ```python3 site.py```
+3. Navigate into the repository folder
+4. Run the command ```virtualenv --python=python3.4 .env```
+5. Source the python virtual environment using the command ```source .env/bin/activate```
+6. From the same directory, run the command ```pip3 install -r requirements.pip```.  This will install the necessary Python libraries
+
+## Running the app
+
+#### Production
+
+1. Source the virtual environment (same as step 5 above)
+2. Run the command ```gunicorn --bind 0.0.0.0:8000 project.wsgi:app```
+3. The site will be made available at http://0.0.0.0:8000/
+
+Alternatively, run the command ```bash run-prod.sh```
+
+#### Development
+
+1. Source the virtual environment (same as step 5 above)
+2. Run the command ```python3.4 run.py```
+3. The site will be made available at http://0.0.0.0:8000/
+
+Alternatively, run the command ```bash run-dev.sh```
