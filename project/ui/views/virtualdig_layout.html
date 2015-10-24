@@ -1,0 +1,98 @@
+<html>
+<head>
+	<title>Virtual Dig!</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="../controllers/virtualdig_layout_controller.js"></script>
+	<link rel="stylesheet" href="../../static-dev/static/css/style.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style>
+        #gallery { float: left; width: 65%; min-height: 12em; }
+        .gallery.custom-state-active { background: #eee; }
+        .gallery li { float: left; width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
+        .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
+        .gallery li a { float: right; }
+        .gallery li a.ui-icon-zoomin { float: left; }
+        .gallery li img { width: 100%; cursor: move; }
+
+        #trash { float: right; width: 32%; min-height: 18em; padding: 1%; }
+        #trash h4 { line-height: 16px; margin: 0 0 0.4em; }
+        #trash .gallery h5 { display: none; }
+    </style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Citizen Science</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Virtual Dig!</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="ui-widget ui-helper-clearfix" style="margin-top:10%;">
+
+        <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+            <li class="ui-widget-content ui-corner-tr">
+                <h5 class="ui-widget-header">Shark tooth 1</h5>
+                <img src="../assets/img/shark_3_c.jpg" alt="Shark tooth 1" width="96" height="72">
+                <a href="../assets/img/shark_3_c.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+            </li>
+            <li class="ui-widget-content ui-corner-tr">
+                <h5 class="ui-widget-header">Shark tooth 2</h5>
+                <img src="../assets/img/shark_3_c.jpg" alt="Shark tooth 2" width="96" height="72">
+                <a href="../assets/img/shark_3_c.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+            </li>
+            <li class="ui-widget-content ui-corner-tr">
+                <h5 class="ui-widget-header">Shark tooth 3</h5>
+                <img src="../assets/img/shark_3_c.jpg" alt="Shark tooth 3" width="96" height="72">
+                <a href="../assets/img/shark_3_c.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+            </li>
+            <li class="ui-widget-content ui-corner-tr">
+                <h5 class="ui-widget-header">Shark tooth 4</h5>
+                <img src="../assets/img/shark_3_c.jpg" alt="Shark tooth 4" width="96" height="72">
+                <a href="../assets/img/shark_3_c.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+            </li>
+            <li class="ui-widget-content ui-corner-tr">
+                <h5 class="ui-widget-header">Shark tooth 5</h5>
+                <img src="../assets/img/shark_3_c.jpg" alt="Shark tooth 5" width="96" height="72">
+                <a href="../assets/img/shark_3_c.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
+                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+            </li>
+        </ul>
+
+        <div id="trash" class="ui-widget-content ui-state-default" style="position: fixed;top:10%;bottom:50px;right:0;float:right;width:250px;background:deepskyblue;">
+            <h4 style="background:wheat;" class="ui-widget-header">Teeth Found!</h4>
+        </div>
+
+    </div>
+    <div class="container-fluid">
+    	<div class="row">
+    		<div id="digarea" class="col-sm-9">
+    		</div>
+    		<div id="digresults" class="col-sm-3">
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>
