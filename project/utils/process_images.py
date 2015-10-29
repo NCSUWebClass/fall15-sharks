@@ -12,6 +12,8 @@ VERBOSE = False
 
 
 class Colors:
+    """ Enumeration of colors to use for drawing / debugging purposes
+    """
     BLACK = (0, 0, 0)
     BLUE = (255, 0, 0)
     GREEN = (0, 255, 0)
@@ -20,16 +22,14 @@ class Colors:
 
 
 class ToothPic:
-
     """ Lame pun
     """
-
     def __init__(self, src):
         # File pathname
         self.path = src
         # Image
         self.image = cv2.imread(src)
-        # Name of the file, ignoring the extension and the
+        # Name of the file, ignoring the extension and the full path
         self.name = src.split("/")[-1].split(".")[0]
         # Debugging images
         self.debug_imgs = {"debug": self.image.copy()}
@@ -43,7 +43,7 @@ class ToothPic:
             cv2.waitKey(-1)
             cv2.destroyAllWindows()
 
-    def get_tooth_contour(self):
+    def _get_tooth_contour(self):
         """ Get the tooth contour
         """
         hsv_img = cv2.cvtColor(self.image, cv2.COLOR_BGR2HSV)
@@ -72,7 +72,7 @@ class ToothPic:
 
         return tooth_contour
 
-    def get_scale(self):
+    def _get_scale(self):
         """ Return the number of pixels per millimeter
         """
         hsv_img = cv2.cvtColor(self.image, cv2.COLOR_BGR2HSV)
@@ -121,13 +121,40 @@ class ToothPic:
 
         return pixels
 
+    def _key_and_resize(self):
+        """ Cut out the non-tooth parts of the image and make them transparent.  Then, crop and scale down the picture.
+        """
+        # Draw a white mask in the shape of the tooth contour
+        rows, cols, channels = self.image.shape
+        mask = np.zeros((rows, cols, 1), np.uint8)
+        cv2.drawContours(mask, [self._get_tooth_contour()], 0, 255, -1)
+
+        # Erode + Dilate
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
+        mask = cv2.erode(mask, kernel)
+
+        # Mask the image to cut out everything not within the bounds of the tooth contour
+        tooth_img = cv2.bitwise_and(self.image, self.image, mask=mask)
+
+        # The alpha channel == the mask: everything set to 0 is transparent
+        alpha = mask
+
+        # Split up the original image into RGB channels, and then merge them back with alpha
+        r, g, b = cv2.split(tooth_img)
+        tooth_img = cv2.merge((r, g, b, alpha))
+
+        return tooth_img
+
     def measure(self):
         """ Measure the tooth using the scale in the picture
         """
-        tooth_contour = self.get_tooth_contour()
-        scale = self.get_scale()
+        tooth_contour = self._get_tooth_contour()
+        scale = self._get_scale()
 
         def tooth_round(pix_diam, scale, alpha=.15):
+            """ If the difference between the actual tooth diameter (in mm) and a smaller tooth measurement is less than
+            alpha x 1mm, round down to the smaller measurement.  Otherwise, round upward.
+            """
             raw_diam = pix_diam / scale
 
             lower_bound = int(math.floor(raw_diam))
@@ -174,37 +201,12 @@ class ToothPic:
 
         return measurement
 
-    def save_img(self, path, extension=".png"):
-        """ Write the image to a new directory using the original filename.  Replaces non-tooth areas with transparency and
-        crops / resizes the image
+    def save(self, path, extension=".png"):
+        """ Write the image to a new directory using the original filename
         """
         fname = os.path.join(path, self.name + extension)
-        scaled_img = self.key_and_resize()
-        cv2.imwrite(fname, scaled_img)
-
-    def key_and_resize(self):
-        """
-        """
-        # Draw a white mask in the shape of the tooth contour
-        rows, cols, channels = self.image.shape
-        mask = np.zeros((rows, cols, 1), np.uint8)
-        cv2.drawContours(mask, [self.get_tooth_contour()], 0, 255, -1)
-
-        # Erode + Dilate
-        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
-        mask = cv2.erode(mask, kernel)
-
-        # Mask the image to cut out everything not within the bounds of the tooth contour
-        tooth_img = cv2.bitwise_and(self.image, self.image, mask=mask)
-
-        # The alpha channel == the mask: everything set to 0 is transparent
-        alpha = mask
-
-        # Split up the original image into RGB channels, and then merge them back with alpha
-        r, g, b = cv2.split(tooth_img)
-        tooth_img = cv2.merge((r, g, b, alpha))
-
-        return tooth_img
+        img = self._key_and_resize()
+        cv2.imwrite(fname, img)
 
 
 def main(src, dest):
@@ -229,7 +231,7 @@ def main(src, dest):
     if not DEBUG:
         # Save cropped and transparency-added images to the new directory
         for pic in toothpics:
-            pic.save_img(dest)
+            pic.save(dest)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='CitizenScience Image Processor')
