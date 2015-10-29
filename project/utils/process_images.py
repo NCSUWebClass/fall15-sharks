@@ -24,14 +24,17 @@ class ToothPic:
     """ Lame pun
     """
 
-    def __init__(self, src, dest):
+    def __init__(self, src):
+        # File pathname
         self.path = src
+        # Image
         self.image = cv2.imread(src)
-
+        # Name of the file, ignoring the extension and the
+        self.name = src.split("/")[-1].split(".")[0]
+        # Debugging images
         self.debug_imgs = {"debug": self.image.copy()}
-
+        # Size of the tooth
         self.measurement = self.measure()
-        # self.save_img()
 
         if DEBUG:
             for name, img in self.debug_imgs.items():
@@ -171,10 +174,13 @@ class ToothPic:
 
         return measurement
 
-    def save_img(self, path):
+    def save_img(self, path, extension=".png"):
+        """ Write the image to a new directory using the original filename.  Replaces non-tooth areas with transparency and
+        crops / resizes the image
         """
-        """
-        pass
+        fname = os.path.join(path, self.name + extension)
+        scaled_img = self.key_and_resize()
+        cv2.imwrite(fname, scaled_img)
 
     def key_and_resize(self):
         """
@@ -188,27 +194,22 @@ class ToothPic:
         kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
         mask = cv2.erode(mask, kernel)
 
-        # Inverse of the mask
-        mask_inv = cv2.bitwise_not(mask)
-
+        # Mask the image to cut out everything not within the bounds of the tooth contour
         tooth_img = cv2.bitwise_and(self.image, self.image, mask=mask)
+
+        # The alpha channel == the mask: everything set to 0 is transparent
+        alpha = mask
+
+        # Split up the original image into RGB channels, and then merge them back with alpha
+        r, g, b = cv2.split(tooth_img)
+        tooth_img = cv2.merge((r, g, b, alpha))
 
         return tooth_img
 
 
-def list_images(src):
-    """ Returns the paths of all of the images in the
-    """
-    base_dir = os.getcwd()
-    directory = os.path.join(base_dir, src)
-
-    paths = [os.path.join(directory, image) for image in os.listdir(directory)]
-    return paths
-
-
 def main(src, dest):
     # List of paths to all of the images
-    imgs = list_images(src)
+    imgs = [os.path.join(src, img) for img in os.listdir(src)]
 
     # Make the destination directory if it doesn't exist
     if os.path.exists(dest):
@@ -223,17 +224,18 @@ def main(src, dest):
         os.mkdir(dest)
 
     # Create a ToothPic object for each image
-    toothpics = [ToothPic(img, dest) for img in imgs]
+    toothpics = [ToothPic(img) for img in imgs]
 
-    for pic in toothpics:
-        pic.save_img(dest)
-
+    if not DEBUG:
+        # Save cropped and transparency-added images to the new directory
+        for pic in toothpics:
+            pic.save_img(dest)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='CitizenScience Image Processor')
 
     parser.add_argument('source')
-    parser.add_argument('destination')
+    parser.add_argument('destination', nargs="?")
 
     parser.add_argument('--debug', '-d', action='store_true', help='debug flag')
     parser.add_argument('--verbose', '-v', action='store_true', help='verbose debugging flag')
@@ -243,7 +245,7 @@ if __name__ == "__main__":
     DEBUG = args.debug
     VERBOSE = args.verbose
 
-    src = args.source
-    dest = args.destination
+    src = os.path.abspath(args.source)
+    dest = os.path.abspath(args.destination)
 
     main(src, dest)
