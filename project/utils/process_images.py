@@ -12,6 +12,7 @@ VERBOSE = False
 
 
 class Colors:
+
     """ Enumeration of colors to use for drawing / debugging purposes
     """
     BLACK = (0, 0, 0)
@@ -22,8 +23,10 @@ class Colors:
 
 
 class ToothPic:
-    """ Lame pun
+
+    """ Lame pun...
     """
+
     def __init__(self, src):
         # File pathname
         self.path = src
@@ -33,8 +36,13 @@ class ToothPic:
         self.name = src.split("/")[-1].split(".")[0]
         # Debugging images
         self.debug_imgs = {"debug": self.image.copy()}
+        # Pixels per millimeter as determined by the scale in the image
+        self.scale = self._get_scale()
         # Size of the tooth
         self.measurement = self.measure()
+
+        # Key, crop and resize the image
+        self.scaled = self._key_and_resize()
 
         if DEBUG:
             for name, img in self.debug_imgs.items():
@@ -67,8 +75,8 @@ class ToothPic:
 
         if DEBUG and VERBOSE and len(contours) > 0:
 
-            self.debug_imgs["tooth"] = img
-            cv2.drawContours(self.debug_imgs["tooth"], [tooth_contour], 0, (255, 255, 0), -1)
+            self.debug_imgs["tooth"] = np.zeros(img.shape, np.uint8)
+            cv2.drawContours(self.debug_imgs["tooth"], [tooth_contour], 0, Colors.WHITE, -1)
 
         return tooth_contour
 
@@ -117,17 +125,19 @@ class ToothPic:
 
                 if VERBOSE:
                     self.debug_imgs["scale"] = img
-                    cv2.drawContours(self.debug_imgs["scale"], [scale_contour], 0, (255, 255, 0), -1)
+                    # cv2.drawContours(self.debug_imgs["scale"], [scale_contour], 0, Colors.BLACK, -1)
 
         return pixels
 
-    def _key_and_resize(self):
+    def _key_and_resize(self, resize_amt=4):
         """ Cut out the non-tooth parts of the image and make them transparent.  Then, crop and scale down the picture.
         """
+        tooth_contour = self._get_tooth_contour()
+
         # Draw a white mask in the shape of the tooth contour
         rows, cols, channels = self.image.shape
         mask = np.zeros((rows, cols, 1), np.uint8)
-        cv2.drawContours(mask, [self._get_tooth_contour()], 0, 255, -1)
+        cv2.drawContours(mask, [tooth_contour], 0, 255, -1)
 
         # Erode + Dilate
         kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
@@ -143,19 +153,42 @@ class ToothPic:
         r, g, b = cv2.split(tooth_img)
         tooth_img = cv2.merge((r, g, b, alpha))
 
-        return tooth_img
+        # Get the bounding rectangle for the tooth contour
+        (x, y, w, h) = cv2.boundingRect(tooth_contour)
+
+        # Get 2 opposite corners of the rectangle.  P1 is bottom left, P2 is top right.
+        # Use 5 pixel offsets for some extra room at the edges
+        point1 = (int(x - 5), int(y - 5))
+        point2 = (int(x + w + 5), int(y + h + 5))
+
+        x1, y1 = point1
+        x2, y2 = point2
+
+        # roi is the cropped image
+        roi = tooth_img.copy()[y1:y2, x1:x2]
+        height, width = roi.shape[:2]
+
+        scaled = cv2.resize(roi.copy(), (width // resize_amt, height // resize_amt))
+
+        if DEBUG and VERBOSE:
+
+            self.debug_imgs["crop"] = self.image.copy()
+            cv2.rectangle(self.debug_imgs["crop"], point1, point2, Colors.GREEN, 3)
+
+            self.debug_imgs["scaled"] = self.scaled
+
+        return scaled
 
     def measure(self):
         """ Measure the tooth using the scale in the picture
         """
         tooth_contour = self._get_tooth_contour()
-        scale = self._get_scale()
 
         def tooth_round(pix_diam, scale, alpha=.15):
             """ If the difference between the actual tooth diameter (in mm) and a smaller tooth measurement is less than
             alpha x 1mm, round down to the smaller measurement.  Otherwise, round upward.
             """
-            raw_diam = pix_diam / scale
+            raw_diam = pix_diam / self.scale
 
             lower_bound = int(math.floor(raw_diam))
             upper_bound = int(math.ceil(raw_diam))
@@ -173,7 +206,7 @@ class ToothPic:
         pix_radius = int(pix_radius * .97)  # account for an innacuracy in the minEnclosingCircle algorithm
         pix_diam = 2 * pix_radius
 
-        measurement = tooth_round(pix_diam, scale)
+        measurement = tooth_round(pix_diam, self.scale)
 
         if DEBUG:
 
@@ -185,19 +218,19 @@ class ToothPic:
 
                 # Draw all measurement circles
                 for i in range(0, 15):
-                    cv2.circle(self.debug_imgs["debug"], center, int(i / 2 * scale), Colors.BLUE, 4)
+                    cv2.circle(self.debug_imgs["debug"], center, int(i / 2 * self.scale), Colors.BLUE, 4)
 
             # Write the measurement to the center of the image
-            cv2.putText(self.debug_imgs["debug"], str(measurement),  (center[0], center[1]), cv2.FONT_HERSHEY_SIMPLEX, 1, Colors.GREEN, 3)
+            cv2.putText(self.debug_imgs["debug"], str(measurement), (center[0], center[1]), cv2.FONT_HERSHEY_SIMPLEX, 1, Colors.GREEN, 3)
 
             # Draw the minimum enclosing circle
             cv2.circle(self.debug_imgs["debug"], center, pix_radius, Colors.RED, 4)
 
             # Draw the *actual* circle that it fits into
-            cv2.circle(self.debug_imgs["debug"], center, int(measurement / 2 * scale), Colors.GREEN, 4)
+            cv2.circle(self.debug_imgs["debug"], center, int(measurement / 2 * self.scale), Colors.GREEN, 4)
 
             # Draw the circle 1 size smaller than the actual size
-            cv2.circle(self.debug_imgs["debug"], center, int((measurement - 1) / 2 * scale), Colors.BLUE, 4)
+            cv2.circle(self.debug_imgs["debug"], center, int((measurement - 1) / 2 * self.scale), Colors.BLUE, 4)
 
         return measurement
 
@@ -205,8 +238,7 @@ class ToothPic:
         """ Write the image to a new directory using the original filename
         """
         fname = os.path.join(path, self.name + extension)
-        img = self._key_and_resize()
-        cv2.imwrite(fname, img)
+        cv2.imwrite(fname, self.scaled)
 
 
 def main(src, dest):
