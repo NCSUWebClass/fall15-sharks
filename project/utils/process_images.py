@@ -248,7 +248,7 @@ class ToothPic:
     def dump(self):
         """ Return a dictionary representation of the relevant information about the picture
         """
-        return {"filename": self.fname, "measurement": self.measurement}
+        return {"filename": self.fname.split("/")[-1], "measurement": self.measurement}
 
 
 def main(src, dest):
