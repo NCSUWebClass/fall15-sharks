@@ -1,8 +1,11 @@
+#!/usr/bin/env python3
+
 from __future__ import division, print_function
 
 import os
 import cv2
 import math
+import json
 import argparse
 import numpy as np
 
@@ -34,6 +37,8 @@ class ToothPic:
         self.image = cv2.imread(src)
         # Name of the file, ignoring the extension and the full path
         self.name = src.split("/")[-1].split(".")[0]
+        # Name of the processed picture (set once the image is saved)
+        self.fname = None
         # Debugging images
         self.debug_imgs = {"debug": self.image.copy()}
         # Pixels per millimeter as determined by the scale in the image
@@ -237,8 +242,13 @@ class ToothPic:
     def save(self, path, extension=".png"):
         """ Write the image to a new directory using the original filename
         """
-        fname = os.path.join(path, self.name + extension)
-        cv2.imwrite(fname, self.scaled)
+        self.fname = os.path.join(path, self.name + extension)
+        cv2.imwrite(self.fname, self.scaled)
+
+    def dump(self):
+        """ Return a dictionary representation of the relevant information about the picture
+        """
+        return {"filename": self.fname, "measurement": self.measurement}
 
 
 def main(src, dest):
@@ -264,6 +274,13 @@ def main(src, dest):
         # Save cropped and transparency-added images to the new directory
         for pic in toothpics:
             pic.save(dest)
+
+        img_dicts = [pic.dump() for pic in toothpics]
+
+        json_str = json.dumps(img_dicts, indent=4)
+
+        with open(os.path.join(dest, "data.json"), "w") as f:
+            f.write(json_str)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='CitizenScience Image Processor')
