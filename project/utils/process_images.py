@@ -189,7 +189,7 @@ class ToothPic:
         """
         tooth_contour = self._get_tooth_contour()
 
-        def tooth_round(pix_diam, scale, alpha=.15):
+        def tooth_round(pix_diam, scale, alpha=.2):
             """ If the difference between the actual tooth diameter (in mm) and a smaller tooth measurement is less than
             alpha x 1mm, round down to the smaller measurement.  Otherwise, round upward.
             """
