@@ -1,10 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3.4
 
 from flask import Flask, render_template, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
 
-import secrets
-import settings
+from project import secrets
+from project import settings
 
 ########################################################
 
@@ -25,9 +25,3 @@ def home():
 @app.route("/fossils")
 def virtualdig():
     return render_template('virtualdig.html', name='virtualdig')
-
-
-########################################################
-
-if __name__ == "__main__":
-    app.run()
