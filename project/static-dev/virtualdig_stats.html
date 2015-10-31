@@ -45,6 +45,11 @@
 			<p>234 miles</p>
 			<p>1 micrometers</p>
 		</div>
+		<ul class=teeth>
+		{% for entry in teeth %}
+			<li>{{ entry.id }} {{entry.name}} {{entry.description}} {{entry.img}}</li>
+		{% endfor %}
+		</ul>
 	</div>
 	<br/>
 	<div class="col-sm-9">
