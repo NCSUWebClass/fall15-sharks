@@ -46,6 +46,28 @@
 		}
 	};
 
+	var shovelSounds = {
+		filenames: ['static/sound/shovel_scooping_stones.mp3',
+					'static/sound/snow_shovel_dig_into_slush.mp3',
+					'static/sound/spade_hit_1.mp3'],
+		numSounds: 3,
+		sounds: []
+	};
+
+	function setupSounds() {
+		var i = 0;
+		for (var s in shovelSounds.filenames) {
+			shovelSounds.sounds[i++] = new Audio(shovelSounds.filenames[s]);
+		}
+	}
+
+	function playSound() {
+		var soundIndex = Math.floor(Math.random() * shovelSounds.numSounds);
+		shovelSounds.sounds[soundIndex].play();
+	}
+
+	var shovelSound;
+
 	// General container for section specific information
 	var sections = {
 		sectionSize: {
@@ -62,6 +84,7 @@
 
 	/** Initiate game logic */
 	function init() {
+		setupSounds();
 		setupContainer('game-container');
 		setupSections('game-container', 'game-section');
 		setupTeeth('game-container', 15);
@@ -113,6 +136,7 @@
 					this.style.width = gameContainer.size.width + 'px';
 					this.style.height = gameContainer.size.height + 'px';
 					showTeeth(this.sectionIndex);
+					playSound();
 					sectionDisplayed = true;
 				}
 
