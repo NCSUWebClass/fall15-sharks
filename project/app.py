@@ -25,3 +25,8 @@ def home():
 @app.route("/fossils")
 def virtualdig():
     return render_template('virtualdig.html', name='virtualdig')
+
+    
+@app.route("/measure")
+def measurement():
+    return render_template('measure.html', name='measure')
