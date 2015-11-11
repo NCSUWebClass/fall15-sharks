@@ -13,3 +13,26 @@ div#digresults {
 	width: 20%;
 	float: right;
 }
+
+/* http://benkaminski.com/2013/05/26/responsive-html5-css3-html5-video-background-in-div-no-javascript/ */
+
+#video-container {
+	position: absolute;
+}
+
+#video-container {
+	top:0%;
+	left:0%;
+	width:100%;
+	overflow: hidden;
+	z-index: 0;
+}
+
+video {
+	position:absolute;
+	z-index:0;
+}
+
+video.fillWidth {
+	width: 100%;
+}

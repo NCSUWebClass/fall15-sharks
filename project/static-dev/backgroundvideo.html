@@ -1,20 +1,33 @@
-{% extends "base.html" %}
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
 
-{% block title %}Citizen Science - Home{% endblock %}
-{% block head_includes %}
-<script>
-	$(document).ready(function() {
-		changeContainer();
-		$(window).resize(changeContainer);
-	});
+    <!-- styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
 
-	function changeContainer() {
-		document.getElementById('video-container').style.height = document.getElementById('homejumbo').clientHeight;
-	}
-</script>
-{% endblock %}
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <!-- Latest compiled and minified JavaScript -->
 
-{% block content %}
+    <!-- IE HTML5 shim -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script>
+    	$(document).ready(function() {
+    		changeContainer();
+    		$(window).resize(changeContainer);
+    	});
+
+    	function changeContainer() {
+    		document.getElementById('video-container').style.height = document.getElementById('homejumbo').clientHeight;
+    	}
+    </script>
+  </head>
+<body>
 	<div id="homejumbo" class="jumbotron">
 		<div id="video-container">
 			<video class="fillWidth" preload="true" autoplay loop muted="muted" volume="0">
@@ -49,4 +62,5 @@
 				<p><a class="btn btn-default">Contact Us &raquo;</a></p>
 		</div>
 	</div>
-{% endblock %}
+</body>
+</html>
