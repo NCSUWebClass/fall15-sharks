@@ -5,18 +5,22 @@ body {
 
 /** VIRTUALDIG **/
 div#digarea {
-	float: right;
+	float: left;
 	background-color: #333;
+	text-align: center;
 	height: 100%;
 }
 
 div#digresults {
-	float: right;
+	float: left;
 	height: 100%;
 }
 
 div#game-container {
+	display: inline-block;
+	float: none;
 	margin: 0 auto;
+	width: 90%;
 }
 
 div.tooth {

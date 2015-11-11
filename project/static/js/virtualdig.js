@@ -2,12 +2,7 @@
 	// Doesn't require jQuery which is lovely.
 	document.addEventListener('DOMContentLoaded', init);
 
-	// Defines the size of the game container
-	var gameContainerSize = {
-		width: 900,
-		height: 600
-	};
-
+	// Defines game container characteristics
 	var gameContainer = {
 		size: {
 			width: 900,
@@ -69,8 +64,8 @@
 	 */
 	function setupContainer(containerId) {
 		var container = document.getElementById(containerId);
-		container.style.width = gameContainerSize.width + 'px';
-		container.style.height = gameContainerSize.height + 'px';
+		container.style.width = gameContainer.size.width + 'px';
+		container.style.height = gameContainer.size.height + 'px';
 	}
 
 	/**
