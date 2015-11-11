@@ -22,7 +22,7 @@ def home():
     return render_template('home.html', name='home')
 
 
-@app.route("/fossils")
+@app.route("/virtualdig")
 def virtualdig():
     return render_template('virtualdig.html', name='virtualdig')
 
