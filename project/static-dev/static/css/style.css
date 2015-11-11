@@ -4,14 +4,35 @@ body {
 }
 
 /** VIRTUALDIG **/
-#digarea {
-	background-image: url("../img/test-sediment.jpg");
-	background-size: cover;
+div#digarea {
+	float: right;
+	background-color: #333;
 	height: 100%;
 }
 
-#digresults {
+div#digresults {
+	float: right;
 	height: 100%;
+}
+
+div#game-container {
+	margin: 0 auto;
+}
+
+div.tooth {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	z-index: 5;
+}
+
+div.game-section {
+	position: absolute;
+	background-image: url("../img/test-sediment.jpg");
+	background-size: cover;
+	z-index: 0;
 }
 
 /** HOMEPAGE **/

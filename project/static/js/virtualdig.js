@@ -17,7 +17,7 @@
 			x: 0,
 			y: 0
 		},
-		id: 'digarea'
+		id: 'game-container'
 	};
 
 	var shovelSounds = {
