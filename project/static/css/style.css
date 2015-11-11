@@ -39,6 +39,10 @@ div.game-section {
 	z-index: 0;
 }
 
+div#digresults > h1 {
+	text-align: center;
+}
+
 /** HOMEPAGE **/
 /* http://benkaminski.com/2013/05/26/responsive-html5-css3-html5-video-background-in-div-no-javascript/ */
 #video-container {

@@ -127,7 +127,15 @@
 			tooth.style.backgroundImage = 'url("'+selectTooth()+'")';
 			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
 			tooth.style.top = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - 99));
-			teeth[Math.floor(Math.random() * 9)].push(tooth);
+			tooth.onclick = function() {
+				teeth[this.sectionIdx].splice(this.arrayIdx, 1);
+				this.style.left = null;
+				this.style.top = null;
+				this.style.position = 'relative';
+				document.getElementById('digresults').appendChild(this);
+			}
+			tooth.sectionIdx = Math.floor(Math.random() * 9);
+			tooth.arrayIdx = teeth[tooth.sectionIdx].push(tooth) - 1;
 			container.appendChild(tooth);
 		}
 	}
