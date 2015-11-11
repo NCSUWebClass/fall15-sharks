@@ -1,7 +1,9 @@
+/** GLOBAL **/
 body {
 	padding-top: 50px;
 }
 
+/** VIRTUALDIG **/
 div#digarea {
 	width: 80%;
 	background-image: url("../img/test-sediment.jpg");
@@ -14,8 +16,8 @@ div#digresults {
 	float: right;
 }
 
+/** HOMEPAGE **/
 /* http://benkaminski.com/2013/05/26/responsive-html5-css3-html5-video-background-in-div-no-javascript/ */
-
 #video-container {
 	position: absolute;
 }
@@ -35,4 +37,22 @@ video {
 
 video.fillWidth {
 	width: 100%;
+}
+
+#homejumbo {
+	height: 60%;
+	color: #fff;
+	text-shadow: 1px 1px #333;
+}
+
+#homejumbo > div.container {
+	text-align: center;
+}
+
+#homejumbo h1 {
+	text-shadow: 2px 2px #333;
+}
+
+#homejumbo .btn-lg {
+	font-size: 28px;
 }
