@@ -25,8 +25,11 @@ def home():
 @app.route("/virtualdig")
 def virtualdig():
     return render_template('virtualdig.html', name='virtualdig')
-
     
 @app.route("/measure")
 def measurement():
     return render_template('measure.html', name='measure')
+
+@app.route("/stats")
+def stats():
+    return render_template('stats.html', name='statistics')
