@@ -3,24 +3,25 @@
 from flask import Flask, render_template, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
 
+import json
+
 from project import secrets
 from project import settings
+from project import db
 
 ########################################################
 
 app = Flask(__name__)
 app.debug = settings.DEBUG
-app.config['SQLALCHEMY_DATABASE_URI'] = settings.SQLALCHEMY_DATABASE_URI
-app.config['SECRET_KEY'] = secrets.SECRET_KEY
-db = SQLAlchemy(app)
+database = db.DB()
 
 ########################################################
 
+# User routes
 
 @app.route("/")
 def home():
     return render_template('home.html', name='home')
-
 
 @app.route("/virtualdig")
 def virtualdig():
@@ -33,3 +34,9 @@ def measurement():
 @app.route("/stats")
 def stats():
     return render_template('stats.html', name='statistics')
+
+# API Routes
+
+@app.route("/getTeeth")
+def getTeeth():
+	return json.dumps(database.getRandomTeeth(15))
