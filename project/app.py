@@ -39,4 +39,4 @@ def stats():
 
 @app.route("/getTeeth")
 def getTeeth():
-	return json.dumps(database.getRandomTeeth(15))
+    return json.dumps(database.getRandomTeeth(15))
