@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-	json = jQuery.getJSON(getTeeth);
+	json = jQuery.getJSON("/getTeeth");
 	jsonString = JSON.stringify(json);
 	// generate expiration
 	var d = new Date();
