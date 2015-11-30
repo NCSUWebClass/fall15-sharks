@@ -1,5 +1,5 @@
 import pymysql
-import secrets
+from . import secrets
 
 class DB:
     """ Container for common methods performed on database.
