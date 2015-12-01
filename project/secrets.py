@@ -1,2 +1,5 @@
 # CHANGE IN PRODUCTION (this file is gitignored to prevent committing future changes)
-SECRET_KEY = ''
+DB_USER = 'cs'
+DB_PASSWORD = 'ncsu'
+DB_TABLE = 'citizen_science'
+
