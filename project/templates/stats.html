@@ -8,6 +8,28 @@
 {% endblock %}
 
 {% block content %} 
+    <script language="javascript">
+    
+        //function found at http://www.w3schools.com/js/js_cookies.asp
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+            }
+            return "";
+        }
+        
+        var teethStr = getCookie("teeth");
+        
+        console.log(teethStr);
+        
+        var teethArray = JSON.parse(teethStr);
+        
+        
+    </script>
     <div id="stats">
 		<h1>Compare your results to past results!</h1>
 		
@@ -32,11 +54,6 @@
 			<p>15 millimeters</p>
 			<p>3 millimeters</p>
 		</div>
-		<ul class=teeth>
-		{% for entry in teeth %}
-			<li>{{ entry.id }} {{entry.name}} {{entry.description}} {{entry.img}}</li>
-		{% endfor %}
-		</ul>
 	</div>
 	<br/>
 	<br/>
