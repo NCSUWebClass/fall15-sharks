@@ -32,12 +32,13 @@
         var max = 0;
         var min = 16;
         for (var tooth in teethArray){
-            teethNum[tooth['measurement']] ++;
-            if(tooth['measurement'] < min){
-                min = tooth['measurement'];
+            console.log(tooth);
+            teethNum[tooth] ++;
+            if(tooth < min){
+                min = tooth;
             }
-            if(tooth['measurement'] > max){
-                max = tooth['measurement'];
+            if(tooth > max){
+                max = tooth;
             }
         }
         
