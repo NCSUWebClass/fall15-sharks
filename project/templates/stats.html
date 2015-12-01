@@ -31,14 +31,14 @@
         teethNum.fill(0);
         var max = 0;
         var min = 16;
-        for (var tooth in teethArray){
-            console.log(tooth);
-            teethNum[tooth] ++;
-            if(tooth < min){
-                min = tooth;
+        for (i = 0; i < teethArray.length; i++){
+            console.log(teethArray[i].measurement);
+            teethNum[teethArray[i].measurement] ++;
+            if(teethArray[i].measurement < min){
+                min = teethArray[i].measurement;
             }
-            if(tooth > max){
-                max = tooth;
+            if(teethArray[i].measurement > max){
+                max = teethArray[i].measurement;
             }
         }
         
