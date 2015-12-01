@@ -31,7 +31,7 @@
         teethNum.fill(0);
         var max = 0;
         var min = 16;
-        for each (var tooth in teethArray){
+        for (var tooth in teethArray){
             teethNum[tooth['measurement']] ++;
             if(tooth['measurement'] < min){
                 min = tooth['measurement'];
@@ -95,8 +95,8 @@
                         pointStrokeColor: "#fff",
                         pointHighlightFill: "#fff",
                         pointHighlightStroke: "rgba(151,187,205,1)",
-                        data: [toothNum[0],toothNum[1],toothNum[2],toothNum[3],toothNum[4],toothNum[5],toothNum[6],
-                            toothNum[7],toothNum[8],toothNum[9],toothNum[10],toothNum[11],toothNum[12],toothNum[13],toothNum[14]]
+                        data: [teethNum[0],teethNum[1],teethNum[2],teethNum[3],teethNum[4],teethNum[5],teethNum[6],
+                            teethNum[7],teethNum[8],teethNum[9],teethNum[10],teethNum[11],teethNum[12],teethNum[13],teethNum[14]]
                     }
                 ]
             };
