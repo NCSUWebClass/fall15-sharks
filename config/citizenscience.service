@@ -7,7 +7,7 @@ User=root
 Group=nginx
 WorkingDirectory=/var/www/CitizenScience
 Environment="PATH=/var/www/CitizenScience/.env/bin"
-ExecStart=/var/www/CitizenScience/.env/bin/gunicorn --workers 3 --bind unix:/var/www/CitizenScience/project/web.sock -m 007 project.wsgi:app
+ExecStart=/var/www/CitizenScience/.env/bin/gunicorn --workers 3 --bind unix:/var/www/CitizenScience/project/web.sock --error-logfile /var/www/CitizenScience/logs/gunicorn-error.log --log-file /var/www/CitizenScience/logs/gunicorn.log -m 007 project.wsgi:app
 Restart=always
 
 [Install]

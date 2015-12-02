@@ -84,3 +84,80 @@ video.fillWidth {
 #homejumbo .btn-lg {
 	font-size: 28px;
 }
+
+/**MEASURE**/
+
+.measure {
+	border-radius: 50%; 
+	border: 1px solid black;
+	float: left;
+}
+
+#1mm {
+	 height: 10px; width: 10px;
+}
+
+#2mm {
+	 height: 20px; width: 20px;
+}
+
+#3mm {
+	 height: 30px; width: 30px;
+}
+
+#4mm {
+	 height: 40px; width: 40px;
+}
+
+#5mm {
+	 height: 50px; width: 50px;
+}
+
+#6mm {
+	 height: 60px; width: 60px;
+}
+
+#7mm {
+	 height: 70px; width: 70px;
+}
+
+#8mm {
+	 height: 80px; width: 80px;
+}
+
+#9mm {
+	 height: 90px; width: 90px;
+}
+
+#10mm {
+	 height: 100px; width: 100px;
+}
+
+#11mm {
+	 height: 110px; width: 110px;
+}
+
+#12mm {
+	 height: 120px; width: 120px;
+}
+
+#13mm {
+	 height: 130px; width: 130px;
+}
+
+#14mm {
+	 height: 140px; width: 140px;
+}
+
+#15mm {
+	 height: 150px; width: 150px;
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;
+}
