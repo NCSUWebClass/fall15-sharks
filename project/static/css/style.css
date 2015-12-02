@@ -90,6 +90,7 @@ video.fillWidth {
 .measure {
 	border-radius: 50%; 
 	border: 1px solid black;
+	float: left;
 }
 
 #1mm {
