@@ -36,7 +36,7 @@ class DB:
         :param numTeeth: The number of teeth to retrieve.
         """
         statement = "SELECT id, name, measurement, imgfilename FROM teeth ORDER BY RAND() LIMIT " + str(numTeeth)
-        return query(statement)
+        return self.query(statement)
 
     def getTeeth(self, ids):
         """ Retrieve teeth from the database from a set of supplied ids.
@@ -47,4 +47,4 @@ class DB:
         for index in range(numIds):
             statement += str(ids[index]) + ", " if index != numIds - 1 else str(ids[index])
         statement += ")"
-        return query(statement)
+        return self.query(statement)
