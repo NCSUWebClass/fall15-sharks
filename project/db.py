@@ -35,7 +35,7 @@ class DB:
         """ Retrieve a variable number of random teeth from the database.
         :param numTeeth: The number of teeth to retrieve.
         """
-        statement = "SELECT id, name, measurement, imgfilename FROM teeth ORDER BY RAND() LIMIT " + numTeeth
+        statement = "SELECT id, name, measurement, imgfilename FROM teeth ORDER BY RAND() LIMIT " + str(numTeeth)
         return query(statement)
 
     def getTeeth(self, ids):
@@ -45,6 +45,6 @@ class DB:
         statement = "SELECT id, name, measurement, imgfilename FROM teeth WHERE id IN ("
         numIds = len(ids)
         for index in range(numIds):
-            statement += ids[index] + ", " if index != numIds - 1 else ids[index]
+            statement += str(ids[index]) + ", " if index != numIds - 1 else str(ids[index])
         statement += ")"
         return query(statement)
