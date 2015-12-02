@@ -8,7 +8,8 @@ function init() {
 	jsonString = JSON.stringify(json);
 	// generate expiration
 	var d = new Date();
-    d.setTime(d.getTime() + (7*24*60*60*1000));
+	// Two hour cookie timeline
+    d.setTime(d.getTime() + (2*60*60*1000));
     var expires = "expires="+d.toUTCString();
 	document.cookie = "teeth=" + jsonString + ";" + expires;
 }
