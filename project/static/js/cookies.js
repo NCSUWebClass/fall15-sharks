@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', init);
 function init() {
 	// generate random teeth from database
 	json = jQuery.getJSON("/getTeeth");
+	console.log(json);
 	// generate json string for cookie
 	jsonString = JSON.stringify(json);
 	// generate expiration
