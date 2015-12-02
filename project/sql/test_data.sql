@@ -9,7 +9,7 @@ INSERT into sharks (
 	
 INSERT into teeth (
 	name,
-	img,
+	imgfilename,
 	measurement,
 	sid)
 	VALUES(

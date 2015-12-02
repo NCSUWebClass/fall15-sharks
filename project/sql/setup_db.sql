@@ -1,5 +1,4 @@
 # Sets up/resets the Citizen Science database
-# Haven't tested this yet, should work fine with MySQL
 DROP DATABASE IF EXISTS citizen_science;
 CREATE DATABASE citizen_science;
 USE citizen_science;
