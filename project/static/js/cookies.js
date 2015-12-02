@@ -3,24 +3,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
 	// generate random teeth from database
-	//json = jQuery.getJSON("/getTeeth");
-    var json = [
-        {"measurement":"1", "lastName":"Doe"}, 
-        {"measurement":"2", "lastName":"Smith"}, 
-        {"measurement":"3", "lastName":"Jones"},
-        {"measurement":"1", "lastName":"Doe"}, 
-        {"measurement":"2", "lastName":"Smith"}, 
-        {"measurement":"3", "lastName":"Jones"},
-        {"measurement":"1", "lastName":"Doe"}, 
-        {"measurement":"2", "lastName":"Smith"}, 
-        {"measurement":"3", "lastName":"Jones"},
-        {"measurement":"1", "lastName":"Doe"}, 
-        {"measurement":"2", "lastName":"Smith"}, 
-        {"measurement":"3", "lastName":"Jones"},
-        {"measurement":"1", "lastName":"Doe"}, 
-        {"measurement":"2", "lastName":"Smith"}, 
-        {"measurement":"3", "lastName":"Jones"}
-    ];
+	json = jQuery.getJSON("/getTeeth");
 	// generate json string for cookie
 	jsonString = JSON.stringify(json);
 	// generate expiration
