@@ -24,11 +24,11 @@ class DB:
         """
         result = None
         try:
-            with connection.cursor() as cursor:
+            with self.connection.cursor() as cursor:
                 cursor.execute(statement)
                 result = cursor.fetchall()
         finally:
-            connection.close()
+            self.connection.close()
         return result
 
     def getRandomTeeth(self, numTeeth = 15):
