@@ -134,7 +134,8 @@
 				this.style.top = null;
 				this.style.position = 'relative';
 				document.getElementById('digresults').appendChild(this);
-				if(this.parent() != 'digresults'){
+				console.log(this.parent());
+				if(this.parents('#digresults').length){
 					currTeeth++;
 					if(currTeeth != numTeeth) {
 						document.getElementById('digCounter').innerHTML = ('Teeth Found: ' + currTeeth + ' / ' + numTeeth);
