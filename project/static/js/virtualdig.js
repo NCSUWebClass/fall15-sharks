@@ -120,7 +120,7 @@
 		var currTeeth =  0;
 		for (var i = 0; i < 9; i++)
 			teeth[i] = [];
-		for (var i = 0; i < numTeeth; i++) {
+		for (var j = 0; j < numTeeth; j++) {
 			var tooth = document.createElement('div');
 			tooth.style.display = 'none';
 			tooth.className = 'tooth';
@@ -134,18 +134,20 @@
 				this.style.top = null;
 				this.style.position = 'relative';
 				document.getElementById('digresults').appendChild(this);
-				if(currTeeth != numTeeth) {
-					document.getElementById('digCounter').innerHTML = ('Teeth Found: ' + currTeeth + ' / ' + numTeeth);
-				}
-				else{
-					document.getElementById('digCounter').innerHTML = ('All teeth found! Go see your results!');
-					document.getElementById('digCounter').style.fontSize = "25px";
+				if(this.parent() != 'digresults'){
+					currTeeth++;
+					if(currTeeth != numTeeth) {
+						document.getElementById('digCounter').innerHTML = ('Teeth Found: ' + currTeeth + ' / ' + numTeeth);
+					}
+					else{
+						document.getElementById('digCounter').innerHTML = ('All teeth found! Go see your results!');
+						document.getElementById('digCounter').style.fontSize = "25px";
+					}
 				}
 			};
 			tooth.sectionIdx = Math.floor(Math.random() * 9);
 			tooth.arrayIdx = teeth[tooth.sectionIdx].push(tooth) - 1;
 			container.appendChild(tooth);
-			currTeeth++;
 		}
 	}
 
