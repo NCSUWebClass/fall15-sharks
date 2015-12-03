@@ -134,7 +134,7 @@
 				this.style.top = null;
 				this.style.position = 'relative';
 				document.getElementById('digresults').appendChild(this);
-				console.log($(this).parent());
+				console.log($(this).parent()[0]);
 				if($(this).parent() != ('div#digresults')){
 					currTeeth++;
 					if(currTeeth != numTeeth) {
