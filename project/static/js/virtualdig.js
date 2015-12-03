@@ -133,7 +133,6 @@
 				this.style.left = null;
 				this.style.top = null;
 				this.style.position = 'relative';
-				document.getElementById('digresults').appendChild(this);
 				if($(this).parent()[0].id != 'digresults'){
 					currTeeth++;
 					if(currTeeth != numTeeth) {
@@ -144,6 +143,7 @@
 						document.getElementById('digCounter').style.fontSize = "25px";
 					}
 				}
+				document.getElementById('digresults').appendChild(this);
 			};
 			tooth.sectionIdx = Math.floor(Math.random() * 9);
 			tooth.arrayIdx = teeth[tooth.sectionIdx].push(tooth) - 1;
