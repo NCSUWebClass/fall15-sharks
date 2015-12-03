@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', init);
 function init() {
     var jsonString = '';
 	// generate random teeth from database
-	$.getJSON("/getTeeth", funtion(data){
+	$.getJSON("/getTeeth", function(data){
         jsonString = JSON.stringify(data);
         var d = new Date();
         d.setTime(d.getTime() + (2*60*60*1000));
