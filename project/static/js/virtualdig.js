@@ -141,6 +141,10 @@
 					else{
 						document.getElementById('digCounter').innerHTML = ('All teeth found! Go see your results!');
 						document.getElementById('digCounter').style.fontSize = "25px";
+						var measurementPageButton = document.createElement("BUTTON");
+						var btnText = document.createTextNode(('Go to measurement page'));
+						measurementPageButton.appendChild(btnText);
+						document.getElementById('digCounter').appendChild(measurementPageButton);
 					}
 				}
 				document.getElementById('digresults').appendChild(this);
