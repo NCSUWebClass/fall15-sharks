@@ -15,6 +15,10 @@ div#digarea {
 div#digresults {
 	float: left;
 	height: 100%;
+	background: deepskyblue;
+	border: solid 3px;
+	border-radius: 5px;
+	overflow: scroll;
 }
 
 div#game-container {
@@ -42,6 +46,9 @@ div.game-section {
 
 div#digresults > h1 {
 	text-align: center;
+	border: solid 2px;
+	border-radius: 5px;
+	background: dimgrey;
 }
 
 /** HOMEPAGE **/
