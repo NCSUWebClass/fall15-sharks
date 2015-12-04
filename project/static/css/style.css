@@ -160,6 +160,10 @@ video.fillWidth {
 	 height: 150px; width: 150px;
 }
 
+#measureButton {
+	float: left;
+}
+
 canvas {
     padding-left: 0;
     padding-right: 0;
