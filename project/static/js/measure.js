@@ -1,3 +1,5 @@
+var count = 0;
+
 $(function() {
 		$(".tooth").draggable();
 		$(".measure").droppable({
@@ -7,4 +9,7 @@ $(function() {
 				
 			}
 		});
+		$("img").hide();
+		$("#tooth" + count).show();
 	});
+	
