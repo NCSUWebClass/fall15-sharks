@@ -1,4 +1,4 @@
-// Wait for document to finish loading DOM content before trying to execute JS on its elements
+// Wait for document to finish loading DOM content before trying to execute JS
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {

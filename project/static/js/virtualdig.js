@@ -46,7 +46,7 @@
 		sectionTeeth: []
 	};
 
-	var teethURLs = ['static/img/test-tooth.png'];
+	var teethData;
 	var teeth = [];
 
 	var sectionDisplayed = false;
@@ -115,6 +115,7 @@
 	}
 
 	function setupTeeth(containerId, numTeeth) {
+		parseCookie();
 		var container = document.getElementById(containerId);
 		var containerLocation = getPosition(container);
 		var currTeeth =  0;
@@ -125,7 +126,7 @@
 			tooth.style.display = 'none';
 			tooth.className = 'tooth';
 			tooth.section = Math.floor(Math.random() * 9);
-			tooth.style.backgroundImage = 'url("'+selectTooth()+'")';
+			tooth.style.backgroundImage = 'url(' + teethData[j].imgfilename + ')';
 			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
 			tooth.style.top = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - 99));
 			tooth.onclick = function() {
@@ -154,10 +155,6 @@
 			tooth.arrayIdx = teeth[tooth.sectionIdx].push(tooth) - 1;
 			container.appendChild(tooth);
 		}
-	}
-
-	function selectTooth() {
-		return teethURLs[Math.floor(Math.random() * teethURLs.length)];
 	}
 
 	function removeTeeth(sectionIndex) {
@@ -189,3 +186,13 @@
 	    }
 	    return { x: xPosition, y: yPosition };
 	}
+	
+	function parseCookie() {
+		if (document.cookie.len < 1) {
+			// create cookie
+		}
+		var teethStr = getCookie("teeth");
+        console.log(teethStr);
+        teethData = JSON.parse(teethStr);
+	}
+	
