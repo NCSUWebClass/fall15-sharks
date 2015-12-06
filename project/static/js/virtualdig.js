@@ -132,7 +132,7 @@
 			tooth.style.backgroundImage = 'url(/static/img/ProcessedTeethPics/' + teethData[j].imgfilename + ')';
 			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
 			tooth.style.top = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - 99));
-			$("#" + tooth.id).rotate(Math.floor(Math.random() * 360));
+			// $("#" + tooth.id).rotate(Math.floor(Math.random() * 360));
 			tooth.onclick = function() {
 				teeth[this.sectionIdx].splice(this.arrayIdx, 1);
 				this.style.left = null;
@@ -193,7 +193,7 @@
 	    }
 	    return { x: xPosition, y: yPosition };
 	}
-	
+
 	//function found at http://www.w3schools.com/js/js_cookies.asp
     function getCookie(cname) {
         var name = cname + "=";
