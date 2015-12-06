@@ -149,7 +149,7 @@
 						document.getElementById('digCounter').appendChild(measurementPageButton);
 					}
 				}
-				document.getElementById('digresults').appendChild(this.setAttribute('style', 'float: left'));
+				document.getElementById('digresults').appendChild(this);
 			};
 			tooth.sectionIdx = Math.floor(Math.random() * 9);
 			tooth.arrayIdx = teeth[tooth.sectionIdx].push(tooth) - 1;
