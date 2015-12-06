@@ -18,7 +18,6 @@ div#digresults {
 	background: deepskyblue;
 	border: solid 3px;
 	border-radius: 5px;
-	overflow: scroll;
 }
 
 div#game-container {
