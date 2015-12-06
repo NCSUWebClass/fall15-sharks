@@ -11,7 +11,9 @@ function getCookie(cname) {
                 if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
             }
             return "";
-        }
+        };
+var teethStr = getCookie("teeth");
+		console.log(teethStr);
 
 $(function() {
 		$(".tooth").draggable();
@@ -37,7 +39,6 @@ $(function() {
 			}
 		});
 		
-		var teethStr = getCookie("teeeth");
-		console.log(teethStr);
+		
 	});
 	
