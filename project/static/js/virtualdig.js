@@ -114,7 +114,9 @@
 	}
 
 	function setupTeeth(containerId, numTeeth) {
-		var teethData = parseCookie();
+		var teethStr = getCookie("teeth");
+        console.log(teethStr);
+        var teethData = JSON.parse(teethStr);
 		var container = document.getElementById(containerId);
 		var containerLocation = getPosition(container);
 		var currTeeth =  0;
@@ -190,15 +192,6 @@
 	        element = element.offsetParent;
 	    }
 	    return { x: xPosition, y: yPosition };
-	}
-	
-	function parseCookie() {
-		if (document.cookie.len < 1) {
-			// create cookie
-		}
-		var teethStr = getCookie("teeth");
-        console.log(teethStr);
-        return JSON.parse(teethStr);
 	}
 	
 	//function found at http://www.w3schools.com/js/js_cookies.asp
