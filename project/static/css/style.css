@@ -44,6 +44,10 @@ div.game-section {
 	z-index: 0;
 }
 
+div#digresults > div {
+	float: left;
+}
+
 div#digresults > h1 {
 	text-align: center;
 	border: solid 2px;
