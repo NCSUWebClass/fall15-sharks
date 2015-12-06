@@ -144,6 +144,7 @@
 						var measurementPageButton = document.createElement("BUTTON");
 						var btnText = document.createTextNode(('Go to measurement page'));
 						measurementPageButton.appendChild(btnText);
+						measurementPageButton.setAttribute('style', 'float: left');
 						//measurementPageButton.onclick('window.location.href = "measure.html";');
 						document.getElementById('digCounter').appendChild(measurementPageButton);
 					}
