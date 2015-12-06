@@ -130,8 +130,8 @@
 			tooth.id = "tooth" + id;
 			tooth.section = Math.floor(Math.random() * 9);
 			tooth.style.backgroundImage = 'url(/static/img/ProcessedTeethPics/' + teethData[j].imgfilename + ')';
-			tooth.style.height = teethData[j].measurement * 10;
-			tooth.style.width = teethData[j].measurement * 10;
+			tooth.style.height = teethData[j].measurement * 15;
+			tooth.style.width = teethData[j].measurement * 15;
 			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
 			tooth.style.top = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - 99));
 			$("#" + tooth.id).rotate(Math.floor(Math.random() * 360));
