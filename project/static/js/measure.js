@@ -1,5 +1,5 @@
 var count = 0;
-var maxCount = 1;
+var maxCount = 14;
 var measurements = [];
 
 function getCookie(cname) {
@@ -15,7 +15,7 @@ function getCookie(cname) {
 		
 
 $(function() {
-		$(".tooth").draggable();
+		
 		$(".measure").droppable({
 			drop: function(event, ui) {
 				$(this)
@@ -23,9 +23,6 @@ $(function() {
 				
 			}
 		});
-		$("img").hide();
-		$("#tooth" + count).show();
-		
 		$("#measureButton").click(function(){
 			measurements.push($("#selectSize").val());
 			console.log(measurements);
@@ -41,13 +38,16 @@ $(function() {
 		console.log(teethStr);
 		var teethArray = JSON.parse(teethStr);
 		for (var i = 0; i < teethArray.length; i++){
-			var fileName = teethArray[0].imgfilename;
-			var img = $('<img class="tooth" id="tooth"' + i + ' src="../static/img/ProcessedTeethPics/' + fileName + '"></img>');
+			var fileName = teethArray[i].imgfilename;
+			var img = $('<img class="tooth" id="tooth' + i + '" src="../static/img/ProcessedTeethPics/' + fileName + '"></img>');
+			img.attr("width", teethArray[i].measurement*8);
+			img.attr("height", teethArray[i].measurement*8)
 			$("#toothContainer").prepend(img);
 			if (i != 0){
 				$('#tooth' + i).hide();
 			}
 		}
+		$(".tooth").draggable();
 		
 	});
 	
