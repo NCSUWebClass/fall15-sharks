@@ -141,13 +141,16 @@
 					else{
 						document.getElementById('digCounter').innerHTML = ('All teeth found! Go see your results!');
 						document.getElementById('digCounter').style.fontSize = "25px";
-						var measurementPageButton = document.createElement("BUTTON");
-						var btnText = document.createTextNode(('Go to measurement page'));
-						measurementPageButton.appendChild(btnText);
-						//measurementPageButton.onclick('window.location.href = "measure.html";');
-						document.getElementById('digCounter').appendChild(measurementPageButton);
+
+
 					}
 				}
+				var measurementPageButton = document.createElement("BUTTON");
+				var btnText = document.createTextNode(('Go to measurement page'));
+				measurementPageButton.appendChild(btnText);
+				measurementPageButton.onclick('window.location.href = "/measure";');
+				document.getElementById('digCounter').appendChild(measurementPageButton);
+
 				var toothForResults = this;
 				document.getElementById('digresults').appendChild(toothForResults);
 			};
