@@ -43,3 +43,10 @@ $(function() {
 		
 	});
 	
+function createMeasurementCookie() {
+    jsonString = JSON.stringify(measurement);
+    var d = new Date();
+    d.setTime(d.getTime() + (2*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = "mesurements="+jsonString+";"+expires;
+}
