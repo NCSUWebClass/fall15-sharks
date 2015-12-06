@@ -12,9 +12,7 @@ function getCookie(cname) {
             }
             return "";
         };
-		var teethStr = getCookie("teeth");
-		console.log(teethStr);
-		var teethArray = JSON.parse(teethStr);
+		
 
 $(function() {
 		$(".tooth").draggable();
@@ -39,7 +37,13 @@ $(function() {
 				$("#tooth" + count).show();
 			}
 		});
-		
+		var teethStr = getCookie("teeth");
+		console.log(teethStr);
+		var teethArray = JSON.parse(teethStr);
+		for (var i = 0; i < teethArray.length; i++){
+			var img = $('<img class="tooth" id="tooth"' + i + '></img>');
+			$("#toothContainer").append(img);
+		}
 		
 	});
 	
