@@ -10,3 +10,7 @@ project/secrets.py
 
 # Environment
 .env
+
+# Other
+logs/
+static/img/teeth/

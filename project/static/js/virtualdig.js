@@ -153,10 +153,10 @@
 							window.location.href = "/measure";
 						};
 						document.getElementById('digCounter').appendChild(measurementPageButton);
-						var toothForResults = this;
-						document.getElementById('digresults').appendChild(toothForResults);
 					}
 				}
+				var toothForResults = this;
+				document.getElementById('digresults').appendChild(toothForResults);
 			};
 			tooth.sectionIdx = Math.floor(Math.random() * 9);
 			tooth.arrayIdx = teeth[tooth.sectionIdx].push(tooth) - 1;
@@ -193,7 +193,7 @@
 	    }
 	    return { x: xPosition, y: yPosition };
 	}
-	
+
 	//function found at http://www.w3schools.com/js/js_cookies.asp
     function getCookie(cname) {
         var name = cname + "=";
