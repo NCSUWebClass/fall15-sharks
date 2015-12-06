@@ -46,6 +46,7 @@ div.game-section {
 
 div#digresults > div {
 	float: left;
+	margin-right: 5px;
 }
 
 div#digresults > h1 {
