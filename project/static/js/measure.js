@@ -15,25 +15,7 @@ function getCookie(cname) {
 		
 
 $(function() {
-		
-		$(".measure").droppable({
-			drop: function(event, ui) {
-				$(this)
-				.addClass("ui-state-highlight");
-				
-			}
-		});
-		$("#measureButton").click(function(){
-			measurements.push($("#selectSize").val());
-			console.log(measurements);
-			$("#tooth" + count).hide();
-			count++;
-			if (count > maxCount){
-				//go to stats page
-			} else {
-				$("#tooth" + count).show();
-			}
-		});
+	
 		var teethStr = getCookie("teeth");
 		console.log(teethStr);
 		var teethArray = JSON.parse(teethStr);
@@ -48,6 +30,30 @@ $(function() {
 			}
 		}
 		$(".tooth").draggable();
+		
+		$(".measure").droppable({
+			drop: function(event, ui) {
+				$(this)
+				.addClass("ui-state-highlight");
+				
+			}
+		});
+		$("#measureButton").click(function(){
+			var value = $("#selectSize").val();
+			if (value == teethArray[count].measurement){
+				$("#tooth" + count).hide();
+				count++;
+				if (count > maxCount){
+					window.location.href = "/stats";
+				} else {
+					$("#tooth" + count).show();
+				}
+			} else {
+				alert("Error: Incorrect Measurement");
+			}
+			
+		});
+		
 		
 	});
 	
