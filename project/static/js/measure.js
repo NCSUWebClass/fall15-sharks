@@ -12,8 +12,9 @@ function getCookie(cname) {
             }
             return "";
         };
-var teethStr = getCookie("teeth");
+		var teethStr = getCookie("teeth");
 		console.log(teethStr);
+		var teethArray = JSON.parse(teethStr);
 
 $(function() {
 		$(".tooth").draggable();
