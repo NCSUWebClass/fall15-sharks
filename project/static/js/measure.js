@@ -1,5 +1,5 @@
 var count = 0;
-var maxCount = 1;
+var maxCount = 14;
 var measurements = [];
 
 function getCookie(cname) {
@@ -15,7 +15,7 @@ function getCookie(cname) {
 		
 
 $(function() {
-		$(".tooth").draggable();
+		
 		$(".measure").droppable({
 			drop: function(event, ui) {
 				$(this)
@@ -23,9 +23,6 @@ $(function() {
 				
 			}
 		});
-		$("img").hide();
-		$("#tooth" + count).show();
-		
 		$("#measureButton").click(function(){
 			measurements.push($("#selectSize").val());
 			console.log(measurements);
@@ -48,6 +45,7 @@ $(function() {
 				$('#tooth' + i).hide();
 			}
 		}
+		$(".tooth").draggable();
 		
 	});
 	
