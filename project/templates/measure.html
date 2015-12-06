@@ -9,55 +9,52 @@
 {% endblock %}
 
 {% block content %}
+<div class="row">
+	<div class="col-sm-5">
+		<h2>Size (mm)</h2>
 
-<div class="col-sm-5">
-	<h2>Size (mm)</h2>
-
-	<div class="row">
-		<div class="measure" id="three"><p style="text-align:center;">3 </p></div>
-		<div class="measure" id="four"><p style="text-align:center;">4 </p></div>
-		<div class="measure" id="five"><p style="text-align:center;">5 </p></div>
-		<div class="measure" id="six"><p style="text-align:center;">6 </p></div>
-		<div class="measure" id="seven"><p style="text-align:center;">7 </p></div>
-		<div class="measure" id="eight"><p style="text-align:center;">8 </p></div>
-	</div>
 		<div class="row">
-		<div class="measure" id="nine"><p style="text-align:center;">9 </p></div>
-		<div class="measure" id="ten"><p style="text-align:center;">10 </p></div>
-		<div class="measure" id="eleven"><p style="text-align:center;">11 </p></div>
-		<div class="measure" id="twelve"><p style="text-align:center;">12 </p></div>
+			<div class="measure" id="three"><p style="text-align:center;">3 </p></div>
+			<div class="measure" id="four"><p style="text-align:center;">4 </p></div>
+			<div class="measure" id="five"><p style="text-align:center;">5 </p></div>
+			<div class="measure" id="six"><p style="text-align:center;">6 </p></div>
+			<div class="measure" id="seven"><p style="text-align:center;">7 </p></div>
+			<div class="measure" id="eight"><p style="text-align:center;">8 </p></div>
+		</div>
+			<div class="row">
+			<div class="measure" id="nine"><p style="text-align:center;">9 </p></div>
+			<div class="measure" id="ten"><p style="text-align:center;">10 </p></div>
+			<div class="measure" id="eleven"><p style="text-align:center;">11 </p></div>
+			<div class="measure" id="twelve"><p style="text-align:center;">12 </p></div>
+		</div>
+		<div class="row">
+			<div class="measure" id="thirteen"><p style="text-align:center;">13 </p></div>
+			<div class="measure" id="fourteen"><p style="text-align:center;">14 </p></div>
+			<div class="measure" id="fifteen"><p style="text-align:center;">15 </p></div>
+		</div>
 	</div>
-	<div class="row">
-		<div class="measure" id="thirteen"><p style="text-align:center;">13 </p></div>
-		<div class="measure" id="fourteen"><p style="text-align:center;">14 </p></div>
-		<div class="measure" id="fifteen"><p style="text-align:center;">15 </p></div>
+
+	<div class="col-sm-3">
+		<img id="tooth0" class="tooth" style="border-radius: 50%" src="..\static\img\test-tooth.png">
+		<img id="tooth1" class="tooth" style="border-radius: 50%" src="..\static\img\test-tooth.png">
+		<div>How big is the tooth?
+			<select id="selectSize">
+				<option value="3">3 Millimeters</option>
+				<option value="4">4 Millimeters</option>
+				<option value="5">5 Millimeters</option>
+				<option value="6">6 Millimeters</option>
+				<option value="7">7 Millimeters</option>
+				<option value="8">8 Millimeters</option>
+				<option value="9">9 Millimeters</option>
+				<option value="10">10 Millimeters</option>
+				<option value="11">11 Millimeters</option>
+				<option value="12">12 Millimeters</option>
+				<option value="13">13 Millimeters</option>
+				<option value="14">14 Millimeters</option>
+				<option value="15">15 Millimeters</option>
+			</select>
+		</div>
+		<button id="measureButton" type="button">Submit</button>
 	</div>
 </div>
-
-<div class="col-sm-3">
-	<img id="tooth0" class="tooth" style="border-radius: 50%" src="..\static\img\test-tooth.png">
-	<img id="tooth1" class="tooth" style="border-radius: 50%" src="..\static\img\test-tooth.png">
-	<div>How big is the tooth?
-		<select id="selectSize">
-			<option value="3">3 Millimeters</option>
-			<option value="4">4 Millimeters</option>
-			<option value="5">5 Millimeters</option>
-			<option value="6">6 Millimeters</option>
-			<option value="7">7 Millimeters</option>
-			<option value="8">8 Millimeters</option>
-			<option value="9">9 Millimeters</option>
-			<option value="10">10 Millimeters</option>
-			<option value="11">11 Millimeters</option>
-			<option value="12">12 Millimeters</option>
-			<option value="13">13 Millimeters</option>
-			<option value="14">14 Millimeters</option>
-			<option value="15">15 Millimeters</option>
-		</select>
-	</div>
-	<button id="measureButton" type="button">Submit</button>
-</div>
-
-<script>
-
-</script>
 {% endblock %}
