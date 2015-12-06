@@ -144,12 +144,12 @@
 						var measurementPageButton = document.createElement("BUTTON");
 						var btnText = document.createTextNode(('Go to measurement page'));
 						measurementPageButton.appendChild(btnText);
-						measurementPageButton.setAttribute('style', 'float: left');
+						measurementPageButton.
 						//measurementPageButton.onclick('window.location.href = "measure.html";');
 						document.getElementById('digCounter').appendChild(measurementPageButton);
 					}
 				}
-				document.getElementById('digresults').appendChild(this);
+				document.getElementById('digresults').appendChild(this.setAttribute('style', 'float: left'));
 			};
 			tooth.sectionIdx = Math.floor(Math.random() * 9);
 			tooth.arrayIdx = teeth[tooth.sectionIdx].push(tooth) - 1;
