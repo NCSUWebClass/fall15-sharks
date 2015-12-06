@@ -18,7 +18,6 @@ div#digresults {
 	background: deepskyblue;
 	border: solid 3px;
 	border-radius: 5px;
-	overflow: scroll;
 }
 
 div#game-container {
@@ -42,6 +41,11 @@ div.game-section {
 	background-image: url("../img/test-sediment.jpg");
 	background-size: cover;
 	z-index: 0;
+}
+
+div#digresults > div {
+	float: left;
+	margin: 10px;
 }
 
 div#digresults > h1 {

@@ -60,7 +60,7 @@
 	}
 
 	/**
-	 * Set game container size to that specified in the global gameContainerSize variable. 
+	 * Set game container size to that specified in the global gameContainerSize variable.
 	 */
 	function setupContainer(containerId) {
 		var container = document.getElementById(containerId);
@@ -123,33 +123,40 @@
 			teeth[i] = [];
 		for (var j = 0; j < numTeeth; j++) {
 			var tooth = document.createElement('div');
+			var id = j.toString();
 			tooth.style.display = 'none';
 			tooth.className = 'tooth';
+			tooth.id = id;
 			tooth.section = Math.floor(Math.random() * 9);
 			tooth.style.backgroundImage = 'url(' + teethData[j].imgfilename + ')';
 			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
 			tooth.style.top = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - 99));
+			$("#" + id).rotate(Math.floor(Math.random() * 360));
 			tooth.onclick = function() {
 				teeth[this.sectionIdx].splice(this.arrayIdx, 1);
 				this.style.left = null;
 				this.style.top = null;
 				this.style.position = 'relative';
-				if($(this).parent()[0].id != 'digresults'){
+				if($(this).parent()[0].id != 'digresults') {
 					currTeeth++;
-					if(currTeeth != numTeeth) {
+					if (currTeeth != numTeeth) {
 						document.getElementById('digCounter').innerHTML = ('Teeth Found: ' + currTeeth + ' / ' + numTeeth);
 					}
-					else{
+					else {
 						document.getElementById('digCounter').innerHTML = ('All teeth found! Go see your results!');
 						document.getElementById('digCounter').style.fontSize = "25px";
 						var measurementPageButton = document.createElement("BUTTON");
 						var btnText = document.createTextNode(('Go to measurement page'));
 						measurementPageButton.appendChild(btnText);
-						//measurementPageButton.onclick('window.location.href = "measure.html";');
+						measurementPageButton.onclick = function () {
+							window.location.href = "/measure";
+						};
 						document.getElementById('digCounter').appendChild(measurementPageButton);
 					}
 				}
-				document.getElementById('digresults').appendChild(this);
+
+				var toothForResults = this;
+				document.getElementById('digresults').appendChild(toothForResults);
 			};
 			tooth.sectionIdx = Math.floor(Math.random() * 9);
 			tooth.arrayIdx = teeth[tooth.sectionIdx].push(tooth) - 1;
