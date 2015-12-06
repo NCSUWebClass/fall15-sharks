@@ -127,7 +127,7 @@
 			tooth.className = 'tooth';
 			tooth.id = "tooth" + id;
 			tooth.section = Math.floor(Math.random() * 9);
-			tooth.style.backgroundImage = 'url(' + teethData[j].imgfilename + ')';
+			tooth.style.backgroundImage = 'url(/static/img/' + teethData[j].imgfilename + ')';
 			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
 			tooth.style.top = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - 99));
 			$("#" + tooth.id).rotate(Math.floor(Math.random() * 360));
