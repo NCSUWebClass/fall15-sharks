@@ -60,7 +60,7 @@
 	}
 
 	/**
-	 * Set game container size to that specified in the global gameContainerSize variable. 
+	 * Set game container size to that specified in the global gameContainerSize variable.
 	 */
 	function setupContainer(containerId) {
 		var container = document.getElementById(containerId);
@@ -122,12 +122,15 @@
 			teeth[i] = [];
 		for (var j = 0; j < numTeeth; j++) {
 			var tooth = document.createElement('div');
+			var id = j.toString();
 			tooth.style.display = 'none';
 			tooth.className = 'tooth';
+			tooth.id = id;
 			tooth.section = Math.floor(Math.random() * 9);
 			tooth.style.backgroundImage = 'url("'+selectTooth()+'")';
 			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
 			tooth.style.top = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - 99));
+			$("#" + id).rotate(Math.floor(Math.random() * 360));
 			tooth.onclick = function() {
 				teeth[this.sectionIdx].splice(this.arrayIdx, 1);
 				this.style.left = null;
