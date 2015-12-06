@@ -46,7 +46,6 @@
 		sectionTeeth: []
 	};
 
-	var teethData;
 	var teeth = [];
 
 	var sectionDisplayed = false;
@@ -115,7 +114,7 @@
 	}
 
 	function setupTeeth(containerId, numTeeth) {
-		parseCookie();
+		var teethData = parseCookie();
 		var container = document.getElementById(containerId);
 		var containerLocation = getPosition(container);
 		var currTeeth =  0;
@@ -200,7 +199,7 @@
 		}
 		var teethStr = getCookie("teeth");
         console.log(teethStr);
-        teethData = JSON.parse(teethStr);
+        return JSON.parse(teethStr);
 	}
 	
 	//function found at http://www.w3schools.com/js/js_cookies.asp
