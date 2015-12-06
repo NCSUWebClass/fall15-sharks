@@ -148,7 +148,9 @@
 				var measurementPageButton = document.createElement("BUTTON");
 				var btnText = document.createTextNode(('Go to measurement page'));
 				measurementPageButton.appendChild(btnText);
-				measurementPageButton.onclick('window.location.href = "/measure";');
+				measurementPageButton.onclick = function () {
+					window.location.href = "/measure";
+				};
 				document.getElementById('digCounter').appendChild(measurementPageButton);
 
 				var toothForResults = this;
