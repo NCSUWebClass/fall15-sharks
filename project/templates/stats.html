@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
 {% block title %}Statistics{% endblock %}
+
 {%block head_includes %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
 {% endblock %}
 
-{% block content %} 
+{% block content %}
     <script language="javascript">
-    
+
         //function found at http://www.w3schools.com/js/js_cookies.asp
         function getCookie(cname) {
             var name = cname + "=";
@@ -21,11 +20,11 @@
             }
             return "";
         }
-        
+
         var teethStr = getCookie("teeth");
-        
+
         console.log(teethStr);
-        
+
         var teethArray = JSON.parse(teethStr);
         var teethNum = new Array(15);
         teethNum.fill(0);
@@ -41,11 +40,11 @@
                 max = teethArray[i].measurement;
             }
         }
-        
+
     </script>
     <div id="stats">
 		<h1>Compare your results to past results</h1>
-		
+
 		<div class="col-sm-3">
 			<h3>Categories</h3>
 			<p>Teeth Found</p>
@@ -103,21 +102,23 @@
             };
             var options = {
                 scaleShowGridLines : true,
-                
+
                 scaleShowHorizontalLines: true,
-                
+
                 scaleShowVerticalLines: true,
-                
+
                 bezierCurve: true,
-                
+
                 bezierCurveTension: 0.5,
-                
+
                 pointDot: true,
-                
-                datasetFill: true               
+
+                datasetFill: true
 
             };
             var myLineChart = new Chart(ctx).Line(data, options);
+            
+            document.getElementById('js-legend').innerHTML = myChart.generateLegend();
         </script>
 	</div>
-{% endblock %}    
+{% endblock %}
