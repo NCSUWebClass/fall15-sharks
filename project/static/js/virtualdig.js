@@ -136,21 +136,24 @@
 				this.style.left = null;
 				this.style.top = null;
 				this.style.position = 'relative';
-				if($(this).parent()[0].id != 'digresults'){
+				if($(this).parent()[0].id != 'digresults') {
 					currTeeth++;
-					if(currTeeth != numTeeth) {
+					if (currTeeth != numTeeth) {
 						document.getElementById('digCounter').innerHTML = ('Teeth Found: ' + currTeeth + ' / ' + numTeeth);
 					}
-					else{
+					else {
 						document.getElementById('digCounter').innerHTML = ('All teeth found! Go see your results!');
 						document.getElementById('digCounter').style.fontSize = "25px";
 						var measurementPageButton = document.createElement("BUTTON");
 						var btnText = document.createTextNode(('Go to measurement page'));
 						measurementPageButton.appendChild(btnText);
-						//measurementPageButton.onclick('window.location.href = "measure.html";');
+						measurementPageButton.onclick = function () {
+							window.location.href = "/measure";
+						};
 						document.getElementById('digCounter').appendChild(measurementPageButton);
 					}
 				}
+
 				var toothForResults = this;
 				document.getElementById('digresults').appendChild(toothForResults);
 			};
