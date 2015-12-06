@@ -43,7 +43,10 @@ $(function() {
 		for (var i = 0; i < teethArray.length; i++){
 			var fileName = teethArray[0].imgfilename;
 			var img = $('<img class="tooth" id="tooth"' + i + ' src="../static/img/ProcessedTeethPics/' + fileName + '"></img>');
-			$("#toothContainer").append(img);
+			$("#toothContainer").prepend(img);
+			if (i != 0){
+				$('#tooth' + i).hide();
+			}
 		}
 		
 	});
