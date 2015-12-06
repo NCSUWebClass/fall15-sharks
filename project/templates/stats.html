@@ -118,6 +118,8 @@
 
             };
             var myLineChart = new Chart(ctx).Line(data, options);
+            
+            document.getElementById('js-legend').innerHTML = myChart.generateLegend();
         </script>
 	</div>
 {% endblock %}    
