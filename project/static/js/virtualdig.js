@@ -126,12 +126,12 @@
 			var id = j.toString();
 			tooth.style.display = 'none';
 			tooth.className = 'tooth';
-			tooth.id = id;
+			tooth.id = "tooth" + id;
 			tooth.section = Math.floor(Math.random() * 9);
 			tooth.style.backgroundImage = 'url(' + teethData[j].imgfilename + ')';
 			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
 			tooth.style.top = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - 99));
-			$("#" + id).rotate(Math.floor(Math.random() * 360));
+			$("#" + tooth.id).rotate(Math.floor(Math.random() * 360));
 			tooth.onclick = function() {
 				teeth[this.sectionIdx].splice(this.arrayIdx, 1);
 				this.style.left = null;
