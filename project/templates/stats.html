@@ -56,8 +56,8 @@
 			<h3>Your results</h3>
 			<p>15</p>
 			<p>1</p>
-			<p><script language="javascript" defer>document.write(max)</script></p>
-			<p><script language="javascript" defer>document.write(min)</script></p>
+			<p><script language="javascript" defer>document.write(max + " millimeters")</script></p>
+			<p><script language="javascript" defer>document.write(min + " millimeters")</script></p>
 		</div>
 		<div class="col-sm-3">
 			<h3>Overall results</h3>
@@ -71,7 +71,7 @@
 	<br/>
 	<div class="col-sm-9">
         <canvas id="myChart" width="800" height="400" auto-legend></canvas>
-        <div id="legendDiv"></div>
+        <div id="legendDiv" class="chart-legend"></div>
         <script language="javascript" defer>
             var ctx = document.getElementById("myChart").getContext("2d");
             var data = {
@@ -81,15 +81,15 @@
                         label: "Overall Distribution",
                         fillColor: "rgba(220,220,200,0.2)",
                         strokeColor: "rgba(220,220,220,1)",
-                        pointColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(220,220,2220,1)",
                         pointStrokeColor: "#fff",
                         pointHighlightFill: "#fff",
                         pointHighlightStroke: "rgba(220,220,220,1)",
-                        data: [0,0,1,4,5,15,22,18,8,5,10,4,5,1,1]
+                        data: [0,0,1/110*15,4/110*15,5/110*15,15/110*15,22/110*15,18/110*15,8/110*15,5/110*15,10/110*15,4/110*15,5/110*15,1/110*15,1/110*15]
                     },
                     {
                         label: "User's Distribution",
-                        fillColor: "rgba(151,187,205,0.2)",
+			fillColor: "rgba(151,187,205,0.2)",
                         strokeColor: "rgba(151,187,205,1)",
                         pointColor: "rgba(151,187,205,1)",
                         pointStrokeColor: "#fff",
@@ -100,6 +100,10 @@
                     }
                 ]
             };
+            var legendTemplateElements = "";
+            for (var i=0; i < data.datasets.length; i++) {
+                legendTemplateElements += '<li><span style="background-color:'+data.datasets[i].strokeColor+'">&nbsp;&nbsp;</span>'+ (typeof data.datasets[i].label !== 'undefined') ? data.datasets[i].label : '' + '</li>';
+            }
             var options = {
                 scaleShowGridLines : true,
 
@@ -114,12 +118,10 @@
                 pointDot: true,
 
                 datasetFill: true
-
-                legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
             };
             var myLineChart = new Chart(ctx).Line(data, options);
             
-            document.getElementById('legendDiv').innerHTML = myChart.generateLegend();
+            document.getElementById('legendDiv').innerHTML = myLineChart.generateLegend();
         </script>
 	</div>
 {% endblock %}
