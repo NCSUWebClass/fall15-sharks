@@ -90,7 +90,7 @@
 			div.sectionIndex = i;
 			div.onclick = function() {
 				if (sectionDisplayed) {
-					removeTeeth(this.sectionIndex);
+					//removeTeeth(this.sectionIndex);
 					this.style.zIndex = 0;
 					this.style.left = this.originalLeft;
 					this.style.top = this.originalTop;
