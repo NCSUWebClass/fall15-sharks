@@ -67,6 +67,7 @@ div#digresults > h1 {
 .sizeCircles {
 	width: 25%;
 	float: left;
+	margin-left: 75px;
 }
 
 .toothMeasureContainer {
