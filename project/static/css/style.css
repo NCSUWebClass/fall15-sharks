@@ -68,7 +68,7 @@ div#digresults > h1 {
 .toothMeasureContainer {
 	border: solid 1px;
 	margin: 25px;
-	width: 33%;
+	width: 25%;
 	padding: 20px;
 	float: left;
 	background: #00BFFF;
@@ -76,7 +76,7 @@ div#digresults > h1 {
 
 .measureInstructions {
 	float: left;
-	width: 30%;
+	width: 25%;
 }
 
 /** HOMEPAGE **/
