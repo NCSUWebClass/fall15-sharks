@@ -145,6 +145,7 @@
 				this.style.left = null;
 				this.style.top = null;
 				this.style.position = 'relative';
+				this.style.transform = 'rotate(0deg)';
 				if($(this).parent()[0].id != 'digresults') {
 					currTeeth++;
 					if (currTeeth != numTeeth) {
