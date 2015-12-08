@@ -56,6 +56,10 @@ div#digresults > h1 {
 	padding: 10px;
 }
 
+.measureDiv {
+	background: #00BFFF;
+}
+
 .toothMeasureContainer {
 	border: solid 1px;
 	margin-top: 10%;
