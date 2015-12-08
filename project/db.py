@@ -7,25 +7,27 @@ class DB:
     """
 
     def __init__(self):
-        # Create db connection
-        self.connection = pymysql.connect(host='127.0.0.1',
-                             user=secrets.DB_USER,
-                             password=secrets.DB_PASSWORD,
-                             db=secrets.DB_TABLE,
-                             charset='utf8mb4',
-                             cursorclass=pymysql.cursors.DictCursor)
+        # Nothing instance specific required yet, so just passing on initialization.
+        pass
 
     def query(self, statement):
         """ Query database using the SQL statement variable supplied.
         :param statement: A string representing an SQL statement to query with.
         """
+        # Create connection per query. Probably really inefficient.
+        connection = pymysql.connect(host='127.0.0.1',
+                             user=secrets.DB_USER,
+                             password=secrets.DB_PASSWORD,
+                             db=secrets.DB_TABLE,
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
         result = None
         try:
-            with self.connection.cursor() as cursor:
+            with connection.cursor() as cursor:
                 cursor.execute(statement)
                 result = cursor.fetchall()
         finally:
-            self.connection.close()
+            connection.close()
         return result
 
     def getRandomTeeth(self, numTeeth = 15):
