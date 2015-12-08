@@ -134,7 +134,12 @@
 			tooth.style.width = teethData[j].measurement * 11;
 			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
 			tooth.style.top = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - 99));
-			tooth.style.transform = 'rotate('+ Math.floor(Math.random() * 360) + 'deg)';
+			var degrees = Math.floor(Math.random() * 360);
+			tooth.style.webkitTransform = 'rotate('+ degrees +'deg)';
+		    tooth.style.mozTransform    = 'rotate('+ degrees +'deg)';
+		    tooth.style.msTransform     = 'rotate('+ degrees +'deg)';
+		    tooth.style.oTransform      = 'rotate('+ degrees +'deg)';
+			tooth.style.transform 		= 'rotate('+ degrees +'deg)';
 			tooth.onclick = function() {
 				teeth[this.sectionIdx].splice(this.arrayIdx, 1);
 				this.style.left = null;
