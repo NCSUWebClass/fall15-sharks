@@ -176,7 +176,7 @@
 
 	function removeTeeth(sectionIndex) {
 		for (var i = 0; i < teeth[sectionIndex].length; i++) {
-			console.log(document.getElementById([sectionIndex][i].id).parent());
+			console.log(document.getElementById(teeth[sectionIndex][i].id).parent());
 			if(teeth[sectionIndex][i].parent) {
 				teeth[sectionIndex][i].style.display = 'none';
 			}
