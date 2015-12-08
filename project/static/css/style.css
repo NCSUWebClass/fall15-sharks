@@ -60,6 +60,7 @@ div#digresults > h1 {
 	border: solid 1px;
 	margin-top: 30%;
 	width: 30%;
+	float: left;
 }
 
 /** HOMEPAGE **/
