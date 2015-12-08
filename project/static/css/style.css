@@ -55,6 +55,11 @@ div#digresults > h1 {
 	background: dimgrey;
 }
 
+.toothMeasure {
+	border: solid 1px;
+	margin-top: 30%;
+}
+
 /** HOMEPAGE **/
 /* http://benkaminski.com/2013/05/26/responsive-html5-css3-html5-video-background-in-div-no-javascript/ */
 #video-container {
