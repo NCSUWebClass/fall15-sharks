@@ -6,17 +6,14 @@ class DB:
     Handles database access and retrieval.
     """
 
-    # Common value across all instances of class
-    connection = pymysql.connect(host='127.0.0.1',
+    def __init__(self):
+        # Create db connection
+        self.connection = pymysql.connect(host='127.0.0.1',
                              user=secrets.DB_USER,
                              password=secrets.DB_PASSWORD,
                              db=secrets.DB_TABLE,
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
-
-    def __init__(self):
-        # Nothing instance specific required yet, so just passing on initialization.
-        pass
 
     def query(self, statement):
         """ Query database using the SQL statement variable supplied.
