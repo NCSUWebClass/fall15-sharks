@@ -61,13 +61,22 @@ div#digresults > h1 {
 	margin-left: 50px;
 }
 
+.sizeCircles {
+	width: 33%;
+}
+
 .toothMeasureContainer {
 	border: solid 1px;
 	margin: 25px;
-	width: 30%;
+	width: 33%;
 	padding: 20px;
 	float: left;
 	background: #00BFFF;
+}
+
+.measureInstructions {
+	float: left;
+	width: 30%;
 }
 
 /** HOMEPAGE **/
