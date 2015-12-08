@@ -165,6 +165,7 @@
 
 				var toothForResults = this;
 				console.log(toothForResults.id);
+				toothForResults.id = toothForResults.id + 'new';
 				document.getElementById('digresults').appendChild(toothForResults);
 			};
 			tooth.sectionIdx = Math.floor(Math.random() * 9);
@@ -175,8 +176,8 @@
 
 	function removeTeeth(sectionIndex) {
 		for (var i = 0; i < teeth[sectionIndex].length; i++) {
-			console.log(teeth[sectionIndex][i]);
-			teeth[sectionIndex][i].style.display = 'none';
+			console.log(teeth[sectionIndex][i].id);
+			document.getElementById(teeth[sectionIndex][i].id).style.display = 'none';
 		}
 	}
 
