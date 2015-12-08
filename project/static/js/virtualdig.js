@@ -164,7 +164,6 @@
 					}
 				}
 				var toothForResults = this;
-				console.log(toothForResults.id);
 				toothForResults.id = toothForResults.id + 'new';
 				document.getElementById('digresults').appendChild(toothForResults);
 			};
