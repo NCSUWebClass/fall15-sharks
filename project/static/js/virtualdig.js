@@ -163,10 +163,6 @@
 						document.getElementById('digCounter').appendChild(measurementPageButton);
 					}
 				}
-				var newTooth = document.createElement(this);
-				console.log(newTooth);
-				newTooth.id = this.id + 'new';
-				console.log(newTooth);
 				var toothForResults = this;
 				console.log(toothForResults.id);
 				toothForResults.id = toothForResults.id + 'new';
@@ -180,8 +176,10 @@
 
 	function removeTeeth(sectionIndex) {
 		for (var i = 0; i < teeth[sectionIndex].length; i++) {
-			console.log('section teeth: ' + teeth[sectionIndex][i].id);
-			document.getElementById(teeth[sectionIndex][i].id).style.display = 'none';
+			console.log(teeth[sectionIndex][i].parent);
+			if(teeth[sectionIndex][i].parent) {
+				teeth[sectionIndex][i].style.display = 'none';
+			}
 		}
 	}
 
