@@ -178,7 +178,7 @@
 	function removeTeeth(sectionIndex) {
 		for (var i = 0; i < teeth[sectionIndex].length; i++) {
 			console.log('section teeth: ' + teeth[sectionIndex][i].id);
-			document.getElementById(teeth[sectionIndex][i].id).style.display = 'none';
+			//document.getElementById(teeth[sectionIndex][i].id).style.display = 'none';
 		}
 	}
 
