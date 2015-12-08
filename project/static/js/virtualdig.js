@@ -157,7 +157,9 @@
 						document.getElementById('digCounter').appendChild(measurementPageButton);
 					}
 				}
+
 				var toothForResults = this;
+				console.log(toothForResults.id);
 				document.getElementById('digresults').appendChild(toothForResults);
 			};
 			tooth.sectionIdx = Math.floor(Math.random() * 9);
