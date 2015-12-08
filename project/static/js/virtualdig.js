@@ -176,8 +176,7 @@
 
 	function removeTeeth(sectionIndex) {
 		for (var i = 0; i < teeth[sectionIndex].length; i++) {
-			console.log($('#' + teeth[sectionIndex][i].id).parent()[0].id === 'game-container');
-			if(teeth[sectionIndex][i].parent) {
+			if($('#' + teeth[sectionIndex][i].id).parent()[0].id === 'game-container') {
 				teeth[sectionIndex][i].style.display = 'none';
 			}
 		}
