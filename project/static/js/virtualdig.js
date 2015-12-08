@@ -132,8 +132,8 @@
 			tooth.style.backgroundImage = 'url(/static/img/ProcessedTeethPics/' + teethData[j].imgfilename + ')';
 			tooth.style.height = teethData[j].measurement * 11;
 			tooth.style.width = teethData[j].measurement * 11;
-			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - tooth.style.width));
-			tooth.style.top = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - tooth.style.height));
+			tooth.style.left = containerLocation.x + Math.floor((Math.random() * (gameContainer.size.width - tooth.style.width));
+			tooth.style.top = containerLocation.y + Math.floor((Math.random() * (gameContainer.size.height - tooth.style.height));
 			var degrees = Math.floor(Math.random() * 360);
 			tooth.style.webkitTransform = 'rotate('+ degrees +'deg)';
 		    tooth.style.mozTransform    = 'rotate('+ degrees +'deg)';
