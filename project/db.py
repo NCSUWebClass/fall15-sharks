@@ -14,7 +14,7 @@ class DB:
         """ Query database using the SQL statement variable supplied.
         :param statement: A string representing an SQL statement to query with.
         """
-        # Create connection per query. Probably really inefficient.
+        # Create connection per query. Probably really inefficient, but idk what happens to pymysql under the hood.
         connection = pymysql.connect(host='127.0.0.1',
                              user=secrets.DB_USER,
                              password=secrets.DB_PASSWORD,
