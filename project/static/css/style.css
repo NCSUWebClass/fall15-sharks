@@ -57,12 +57,12 @@ div#digresults > h1 {
 }
 
 .measureDiv {
-	background: #00BFFF;
+	margin-top: 10%;
 }
 
 .toothMeasureContainer {
 	border: solid 1px;
-	margin-top: 10%;
+
 	width: 30%;
 	padding: 20px;
 	float: left;
