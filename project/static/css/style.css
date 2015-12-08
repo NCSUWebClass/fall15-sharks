@@ -53,11 +53,13 @@ div#digresults > h1 {
 	border: solid 2px;
 	border-radius: 5px;
 	background: dimgrey;
+	padding: 10px;
 }
 
 .toothMeasureContainer {
 	border: solid 1px;
 	margin-top: 30%;
+	width: 30%;
 }
 
 /** HOMEPAGE **/
