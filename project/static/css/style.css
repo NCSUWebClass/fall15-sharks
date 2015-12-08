@@ -71,7 +71,9 @@ div#digresults > h1 {
 
 .toothMeasureContainer {
 	border: solid 1px;
-	margin: 25px;
+	margin-top: 25px;
+	margin-left: 50px;
+	margin-right: 50px;
 	width: 25%;
 	padding: 20px;
 	float: left;
