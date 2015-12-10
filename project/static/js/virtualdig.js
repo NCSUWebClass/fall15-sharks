@@ -12,8 +12,13 @@
 			x: 0,
 			y: 0
 		},
-		id: 'game-container'
+		id: 'game-container',
+		bgfilename: '',
+		bgfilenames: []
 	};
+
+	for (var i = 1; i < 24; i++)
+		gameContainer.bgfilenames[i-1] = 'static/img/backgrounds/bg'+i+'.jpg';
 
 	var shovelSounds = {
 		filenames: ['static/sound/shovel_scooping_stones.mp3',
@@ -65,6 +70,8 @@
 		var container = document.getElementById(containerId);
 		container.style.width = gameContainer.size.width + 'px';
 		container.style.height = gameContainer.size.height + 'px';
+		document.style.backgroundImage = 'url("'+gameContainer.bgfilenames[Math.floor(Math.rand * gameContainer.bgfilenames.length)]+'")';
+		document.style.backgroundSize = 'cover';
 	}
 
 	/**
@@ -91,6 +98,7 @@
 			div.onclick = function() {
 				if (sectionDisplayed) {
 					removeTeeth(this.sectionIndex);
+					this.style.backgroundImage = 'none';
 					this.style.zIndex = 0;
 					this.style.left = this.originalLeft;
 					this.style.top = this.originalTop;
@@ -103,6 +111,9 @@
 					this.style.top = containerLocation.y;
 					this.style.width = gameContainer.size.width + 'px';
 					this.style.height = gameContainer.size.height + 'px';
+					this.style.backgroundImage = gameContainer.bgfilename;
+					this.style.backgroundPosition= Math.floor((this.sectionIndex % 3) * 33) + '% ' + Math.floor((this.sectionIndex / 3) * 33) + '%';
+					this.style.backgroundSize = '33% 33%';
 					showTeeth(this.sectionIndex);
 					playSound();
 					sectionDisplayed = true;
@@ -129,7 +140,7 @@
 			tooth.className = 'tooth';
 			tooth.id = "tooth" + id;
 			tooth.section = Math.floor(Math.random() * 9);
-			tooth.style.backgroundImage = 'url(/static/img/ProcessedTeethPics/' + teethData[j].imgfilename + ')';
+			tooth.style.backgroundImage = 'url("/static/img/ProcessedTeethPics/' + teethData[j].imgfilename + '")';
 			tooth.style.height = teethData[j].measurement * 11;
 			tooth.style.width = teethData[j].measurement * 11;
 			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
