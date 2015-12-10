@@ -8,17 +8,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <div id="digarea">
-        </div>
-        <button id="toggleResults" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#digresults" aria-expanded="false" aria-controls="digresults">
-  Treasure!
-</button>
-        <div id="digresults" class="collapse">
-        	<h1>&laquo; Collection &raquo;</h1>
-            <h2 id="digCounter"></h2>
-        </div>
-    </div>
+<div id="digarea"></div>
+<button id="toggleResults" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#digresults" aria-expanded="false" aria-controls="digresults">Treasure!</button>
+<div id="digresults" class="collapse">
+    <h1>&laquo; Collection &raquo;</h1>
+    <h2 id="digCounter"></h2>
 </div>
 {% endblock %}

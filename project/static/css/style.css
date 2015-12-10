@@ -13,13 +13,13 @@ div#digarea {
 #toggleResults {
 	position: fixed;
 	right: 0%;
-	top: 5%;
+	top: 7%;
 }
 
 div#digresults {
 	position: fixed;
-	right: 20%;
-	top: 7%;
+	right: 0%;
+	top: 10%;
 	height: 100%;
 	width: 20%;
 	background: deepskyblue;
