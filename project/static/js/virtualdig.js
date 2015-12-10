@@ -68,9 +68,9 @@
 		teeth.displayed.splice(toothIndex, 1);
 	}
 
-	var teeth = [];
-	var teethPositions = [];
-	var displayedTeeth = [];
+	//var teeth = [];
+	//var teethPositions = [];
+	//var displayedTeeth = [];
 
 	var sectionDisplayed = false;
 
