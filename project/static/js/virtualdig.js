@@ -78,6 +78,9 @@
 		container.style.width = gameContainer.size.width + 'px';
 		container.style.height = gameContainer.size.height + 'px';
 		container.style.backgroundImage = 'url("'+gameContainer.bgfilename+'")';
+		container.addEventListener("dragstart", function() {
+			return false;
+		});
 		container.addEventListener("mousedown", function() {
 			mouseDown = true;
 			return false;
