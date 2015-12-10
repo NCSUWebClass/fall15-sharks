@@ -65,29 +65,26 @@ div#digresults > h1 {
 	display: inline-block;
 }
 
-.sizeCircles {
-	width: 25%;
+#sizeCircles {
 	float: left;
 	margin-left: 75px;
 	border: solid 1px;
 	background: #00BFFF;
-	padding: 20px;
+	padding: 30px;
 }
 
-.toothMeasureContainer {
+#toothContainer {
 	border: solid 1px;
 	margin-top: 25px;
 	margin-left: 150px;
 	margin-right: 150px;
-	width: 25%;
 	padding: 20px;
 	float: left;
 	background: #00BFFF;
 }
 
-.measureInstructions {
+#measureInstructions {
 	float: left;
-	width: 25%;
 	border: solid 1px;
 	padding: 20px;
 	background: #00BFFF;
