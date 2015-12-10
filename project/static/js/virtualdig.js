@@ -248,6 +248,7 @@
 			var originLeft = containerLocation.x + Math.abs(Math.floor(Math.random() * gameContainer.truesize.width));
 			var originTop = containerLocation.y + Math.abs(Math.floor(Math.random() * gameContainer.truesize.height));
 			teeth.positions[j] = [originLeft, originTop];
+			teeth.displayed[j] = false;
 			tooth.originLeft = originLeft;
 			tooth.originTop = originTop;
 			tooth.style.left = originLeft;
