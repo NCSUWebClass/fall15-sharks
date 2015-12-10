@@ -38,8 +38,6 @@ div.tooth {
 
 div.game-section {
 	position: absolute;
-	background-image: url("../img/test-sediment.jpg");
-	background-size: cover;
 	z-index: 0;
 }
 
