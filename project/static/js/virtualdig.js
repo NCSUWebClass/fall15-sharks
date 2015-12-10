@@ -4,11 +4,19 @@
 
 	// Defines game container characteristics
 	var gameContainer = {
+		truesize: {
+			width: 3006,
+			height: 5344
+		},
 		size: {
 			width: 900,
 			height: 600
 		},
 		position: {
+			x: 0,
+			y: 0
+		},
+		trueposition: {
 			x: 0,
 			y: 0
 		},
@@ -52,7 +60,17 @@
 		sectionTeeth: []
 	};
 
+	var teeth = {};
+	teeth.positions = [];
+	teeth.displayed = [];
+	teeth.removeTooth = function(toothIndex) {
+		teeth.positions.splice(toothIndex, 1);
+		teeth.displayed.splice(toothIndex, 1);
+	}
+
 	var teeth = [];
+	var teethPositions = [];
+	var displayedTeeth = [];
 
 	var sectionDisplayed = false;
 
@@ -64,9 +82,12 @@
 
 	/** Initiate game logic */
 	function init() {
+		var body = document.getElementsByTagName("body")[0];
+		body.addEventListener("dragstart", function() { return false; });
+		body.addEventListener("drop", function() { return false; });
 		setupSounds();
 		setupContainer(gameContainer.id);
-		setupSections(gameContainer.id, 'game-section');
+		//setupSections(gameContainer.id, 'game-section');
 		setupTeeth(gameContainer.id, 15);
 	}
 
@@ -78,9 +99,6 @@
 		container.style.width = gameContainer.size.width + 'px';
 		container.style.height = gameContainer.size.height + 'px';
 		container.style.backgroundImage = 'url("'+gameContainer.bgfilename+'")';
-		container.addEventListener("dragstart", function() {
-			return false;
-		});
 		container.addEventListener("mousedown", function() {
 			mouseDown = true;
 			return false;
@@ -98,17 +116,66 @@
 				deltaY = movement.pageY - lastMouse.y;
 				gameContainer.position.x += deltaX;
 				gameContainer.position.y += deltaY;
+				gameContainer.trueposition.x += deltaX;
+				gameContainer.trueposition.y += deltaY;
 				this.style.backgroundPosition = gameContainer.position.x + 'px ' + gameContainer.position.y + 'px';
+				var containerRight = gameContainer.trueposition.x + gameContainer.size.width;
+				var containerBottom = gameContainer.trueposition.y + gameContainer.size.height;
+				for (var i = 0; i < teethPositions.length; i++) {
+					var xPos = teeth.positions[i][0];
+					var yPos = teeth.positions[i][1];
+					if (((xPos > gameContainer.trueposition.x) && (xPos < containerRight)) &&
+						((yPos > gameContainer.trueposition.y) && (yPos < containerBottom))) {
+						if (teeth.displayed[i] == false)
+							showTooth(i);
+					} else if (teeth.displayed[i] == true)
+						hideTooth(i);
+					moveTooth(i, deltaX, deltaY);
+				}
 			}
 			lastMouse.x = movement.pageX;
 			lastMouse.y = movement.pageY;
 		});
 	}
 
+	function moveTooth(index, deltaX, deltaY) {
+		var tooth = teeth.positions[index];
+		tooth[0] += deltaX;
+		tooth[1] += deltaY;
+		if (teeth.displayed[index] == true)
+			moveDOMTooth(index);
+	}
+
+	function showTooth(index) {
+		var toothShown = teeth.displayed[index];
+		if (toothShown == true)
+			return;
+		moveDOMTooth(index);
+		var tooth = document.getElementById('tooth'+index);
+		tooth.style.display = 'block';
+		toothShown = true;
+	}
+
+	function moveDOMTooth(index) {
+		var tooth = document.getElementById('tooth'+index);
+		tooth.style.left = teeth.positions[index][0];
+		tooth.style.top = teeth.positions[index][1];
+	}
+
+	function hideTooth(index) {
+		var toothShown = teeth.displayed[index];
+		if (toothShown == false)
+			return;
+		var tooth = document.getElementById('tooth'+index);
+		tooth.style.display = 'none';
+		toothShown = false;
+	}
+
+
+
 	/**
 	 * Create 9 sections in game container that split it into different areas for "digging"
 	 * Assign click functionality to display section and its elements.
-	 */
 	function setupSections(containerId, sectionClass) {
 		var container = document.getElementById(containerId);
 		var containerLocation = getPosition(container);
@@ -153,7 +220,7 @@
 			};
 			container.appendChild(div);
 		}
-	}
+	} */
 
 	function setupTeeth(containerId, numTeeth) {
 		var teethStr = getCookie("teeth");
@@ -161,6 +228,8 @@
         var teethData = JSON.parse(teethStr);
 		var container = document.getElementById(containerId);
 		var containerLocation = getPosition(container);
+		gameContainer.trueposition.x = containerLocation.x;
+		gameContainer.trueposition.y = containerLocation.y;
 		var currTeeth =  0;
 		for (var i = 0; i < 9; i++)
 			teeth[i] = [];
@@ -170,12 +239,19 @@
 			tooth.style.display = 'none';
 			tooth.className = 'tooth';
 			tooth.id = "tooth" + id;
-			tooth.section = Math.floor(Math.random() * 9);
+			//tooth.section = Math.floor(Math.random() * 9);
 			tooth.style.backgroundImage = 'url("/static/img/ProcessedTeethPics/' + teethData[j].imgfilename + '")';
 			tooth.style.height = teethData[j].measurement * 11;
 			tooth.style.width = teethData[j].measurement * 11;
-			tooth.style.left = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
-			tooth.style.top = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - 99));
+			//var originLeft = containerLocation.x + Math.abs(Math.floor((Math.random() * gameContainer.size.width) - 99));
+			//var originTop = containerLocation.y + Math.abs(Math.floor((Math.random() * gameContainer.size.height) - 99));
+			var originLeft = containerLocation.x + Math.abs(Math.floor(Math.random() * gameContainer.truesize.width));
+			var originTop = containerLocation.y + Math.abs(Math.floor(Math.random() * gameContainer.truesize.height));
+			teeth.positions[j] = [originLeft, originTop];
+			tooth.originLeft = originLeft;
+			tooth.originTop = originTop;
+			tooth.style.left = originLeft;
+			tooth.style.top = originTop;
 			var degrees = Math.floor(Math.random() * 360);
 			tooth.style.webkitTransform = 'rotate('+ degrees +'deg)';
 		    tooth.style.mozTransform    = 'rotate('+ degrees +'deg)';
@@ -183,7 +259,8 @@
 		    tooth.style.oTransform      = 'rotate('+ degrees +'deg)';
 			tooth.style.transform 		= 'rotate('+ degrees +'deg)';
 			tooth.onclick = function() {
-				teeth[this.sectionIdx].splice(this.arrayIdx, 1);
+				//teeth[this.sectionIdx].splice(this.arrayIdx, 1);
+				teeth.removeTooth(this.arrayIdx);
 				this.style.left = null;
 				this.style.top = null;
 				this.style.position = 'relative';
@@ -209,8 +286,9 @@
 				toothForResults.id = toothForResults.id + 'new';
 				document.getElementById('digresults').appendChild(toothForResults);
 			};
-			tooth.sectionIdx = Math.floor(Math.random() * 9);
-			tooth.arrayIdx = teeth[tooth.sectionIdx].push(tooth) - 1;
+			//tooth.sectionIdx = Math.floor(Math.random() * 9);
+			//tooth.arrayIdx = teeth[tooth.sectionIdx].push(tooth) - 1;
+			tooth.arrayIdx = j;
 			container.appendChild(tooth);
 		}
 	}
