@@ -70,7 +70,7 @@
 		var container = document.getElementById(containerId);
 		container.style.width = gameContainer.size.width + 'px';
 		container.style.height = gameContainer.size.height + 'px';
-		container.style.backgroundImage = 'url("'+gameContainer.bgfilenames[Math.floor(Math.rand * gameContainer.bgfilenames.length)]+'")';
+		container.style.backgroundImage = 'url("'+gameContainer.bgfilenames[Math.floor(Math.rand() * gameContainer.bgfilenames.length)]+'")';
 		container.style.backgroundSize = 'cover';
 	}
 
