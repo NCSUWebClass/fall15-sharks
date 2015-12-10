@@ -80,6 +80,7 @@
 		container.style.backgroundImage = 'url("'+gameContainer.bgfilename+'")';
 		container.addEventListener("mousedown", function() {
 			mouseDown = true;
+			return false;
 		});
 		document.addEventListener("mouseup", function() {
 			mouseDown = false;
@@ -90,8 +91,8 @@
 		});
 		container.addEventListener("mousemove", function(movement) {
 			if (mouseDown) {
-				deltaX = lastMouse.x - movement.pageX;
-				deltaY = lastMouse.y - movement.pageY;
+				deltaX = movement.pageX - lastMouse.x;
+				deltaY = movement.pageY - lastMouse.y;
 				gameContainer.position.x += deltaX;
 				gameContainer.position.y += deltaY;
 				this.style.backgroundPosition = gameContainer.position.x + 'px ' + gameContainer.position.y + 'px';
