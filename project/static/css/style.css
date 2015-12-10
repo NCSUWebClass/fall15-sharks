@@ -7,8 +7,6 @@ body {
 div#digarea {
 	background-color: #333;
 	text-align: center;
-	height: 100%;
-	width: 100%;
 	overflow: auto;
 }
 
@@ -20,7 +18,7 @@ div#digarea {
 
 div#digresults {
 	position: fixed;
-	right: 0%;
+	right: 20%;
 	top: 7%;
 	height: 100%;
 	width: 20%;
