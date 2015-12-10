@@ -86,8 +86,8 @@
 		});
 		container.addEventListener("mousemove", function(movement) {
 			if (mouseDown) {
-				deltaX = movement.pageX - lastMouse.x;
-				deltaY = movement.pageY - lastMouse.y;
+				deltaX = lastMouse.x - movement.pageX;
+				deltaY = lastMouse.y - movement.pageY;
 				lastMouse.x = movement.pageX;
 				lastMouse.y = movement.pageY;
 				gameContainer.position.x += deltaX;
