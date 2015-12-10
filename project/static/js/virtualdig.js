@@ -20,7 +20,7 @@ var gameContainer = {
 		x: 0,
 		y: 0
 	},
-	id: 'game-container',
+	id: 'digarea',
 	bgfilename: '',
 	bgfilenames: []
 };
@@ -77,7 +77,7 @@ function retrieveTeeth() {
 function setupContainer(containerId) {
 	var container = document.createElement('img');
 	container.setAttribute('src', gameContainer.bgfilename);
-	document.getElementById('digarea').appendChild(container);
+	document.getElementById(containerId).appendChild(container);
 }
 
 function setupTeeth(containerId, numTeeth) {
