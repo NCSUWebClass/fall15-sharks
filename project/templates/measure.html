@@ -9,8 +9,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="measureDiv">
-	<div class="sizeCircles">
+<div class="row" >
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-5" id="sizeCircles">
 		<h2>Size (mm)</h2>
 
 		<div class="row">
@@ -34,9 +36,8 @@
 		</div>
 	</div>
 
-	<div id="toothContainer" class="toothMeasureContainer">
-		<div style="margin-top: 15px;">
-			How big is the tooth?
+	<div id="toothContainer" class="col-sm-3">
+		<div>How big is the tooth?
 			<select id="selectSize">
 				<option value="3">3 Millimeters</option>
 				<option value="4">4 Millimeters</option>
@@ -53,10 +54,10 @@
 				<option value="15">15 Millimeters</option>
 			</select>
 		</div>
-		<button  style="margin-top: 15px;" id="measureButton" type="button">Submit</button>
+		<button id="measureButton" type="button">Submit</button>
 
 	</div>
-	<div class="measureInstructions">
+	<div id="measureInstructions" class="col-sm-3">
 		<h2>Instructions</h2>
 		<p>Drag the tooth into the circles on the left to
 		<br/> see how big your tooth is. Teeth should not
