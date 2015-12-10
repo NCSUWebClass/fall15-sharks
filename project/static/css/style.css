@@ -5,29 +5,29 @@ body {
 
 /** VIRTUALDIG **/
 div#digarea {
-	float: left;
 	background-color: #333;
 	text-align: center;
 	height: 100%;
+	width: 100%;
 	overflow: auto;
 }
 
+#toggleResults {
+	position: fixed;
+	right: 0%;
+	top: 5%;
+}
+
 div#digresults {
-	float: left;
+	position: fixed;
+	right: 0%;
+	top: 7%;
 	height: 100%;
+	width: 20%;
 	background: deepskyblue;
 	border: solid 3px;
 	border-radius: 5px;
 	overflow: auto;
-}
-
-div#game-container {
-	display: inline-block;
-	float: none;
-	margin: 0 auto;
-	width: 90%;
-	background-repeat: no-repeat;
-	background-color: #333;
 }
 
 div.tooth {
@@ -37,11 +37,6 @@ div.tooth {
 	background-size: contain;
 	background-repeat: no-repeat;
 	z-index: 5;
-}
-
-div.game-section {
-	position: absolute;
-	z-index: 0;
 }
 
 div#digresults > div {
