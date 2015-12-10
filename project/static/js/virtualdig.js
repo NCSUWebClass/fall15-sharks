@@ -70,8 +70,8 @@
 		var container = document.getElementById(containerId);
 		container.style.width = gameContainer.size.width + 'px';
 		container.style.height = gameContainer.size.height + 'px';
-		document.style.backgroundImage = 'url("'+gameContainer.bgfilenames[Math.floor(Math.rand * gameContainer.bgfilenames.length)]+'")';
-		document.style.backgroundSize = 'cover';
+		container.style.backgroundImage = 'url("'+gameContainer.bgfilenames[Math.floor(Math.rand * gameContainer.bgfilenames.length)]+'")';
+		container.style.backgroundSize = 'cover';
 	}
 
 	/**
