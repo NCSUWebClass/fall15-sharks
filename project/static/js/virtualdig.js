@@ -56,6 +56,12 @@
 
 	var sectionDisplayed = false;
 
+	var mouseDown = false;
+	var lastMouse = {
+		x: 0,
+		y: 0
+	};
+
 	/** Initiate game logic */
 	function init() {
 		setupSounds();
@@ -72,7 +78,21 @@
 		container.style.width = gameContainer.size.width + 'px';
 		container.style.height = gameContainer.size.height + 'px';
 		container.style.backgroundImage = 'url("'+gameContainer.bgfilename+'")';
-		container.style.backgroundSize = 'cover';
+		container.addEventListener("mousedown", function() {
+			mouseDown = true;
+		});
+		container.addEventListener("mouseup", function() {
+			mouseDown = false;
+		});
+		container.addEventListener("mousemove", function(movement) {
+			deltaX = movement.pageX - lastMouse.x;
+			deltaY = movement.pageY - lastMouse.y;
+			lastMouse.x = movement.pageX;
+			lastMouse.y = movmeent.pageY;
+			gameContainer.position.x += deltaX;
+			gameContainer.position.y += deltaY;
+			this.style.backgroundPosition = gameContainer.position.x + 'px ' + gameContainer.position.y + 'px';
+		});
 	}
 
 	/**

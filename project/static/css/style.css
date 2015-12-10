@@ -10,6 +10,7 @@ div#digarea {
 	text-align: center;
 	height: 100%;
 	overflow: scroll;
+	padding-top: 60px;
 }
 
 div#digresults {
