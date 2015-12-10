@@ -95,7 +95,10 @@
 	 * Set game container size to that specified in the global gameContainerSize variable.
 	 */
 	function setupContainer(containerId) {
-		var container = document.getElementById(containerId);
+		var container = document.createElement('img');
+		container.setAttribute('src', gameContainer.bgfilename);
+		document.getElementById('digarea').appendChild(container);
+		/* var container = document.getElementById(containerId);
 		container.style.width = gameContainer.size.width + 'px';
 		container.style.height = gameContainer.size.height + 'px';
 		container.style.backgroundImage = 'url("'+gameContainer.bgfilename+'")';
@@ -135,7 +138,7 @@
 			}
 			lastMouse.x = movement.pageX;
 			lastMouse.y = movement.pageY;
-		});
+		}); */
 	}
 
 	function moveTooth(index, deltaX, deltaY) {
@@ -236,7 +239,7 @@
 		for (var j = 0; j < numTeeth; j++) {
 			var tooth = document.createElement('div');
 			var id = j.toString();
-			tooth.style.display = 'none';
+			tooth.style.display = 'block';
 			tooth.className = 'tooth';
 			tooth.id = "tooth" + id;
 			//tooth.section = Math.floor(Math.random() * 9);
