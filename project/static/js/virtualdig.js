@@ -121,7 +121,7 @@
 				this.style.backgroundPosition = gameContainer.position.x + 'px ' + gameContainer.position.y + 'px';
 				var containerRight = gameContainer.trueposition.x + gameContainer.size.width;
 				var containerBottom = gameContainer.trueposition.y + gameContainer.size.height;
-				for (var i = 0; i < teethPositions.length; i++) {
+				for (var i = 0; i < teeth.positions.length; i++) {
 					var xPos = teeth.positions[i][0];
 					var yPos = teeth.positions[i][1];
 					if (((xPos > gameContainer.trueposition.x) && (xPos < containerRight)) &&
