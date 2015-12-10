@@ -231,8 +231,8 @@
 		gameContainer.trueposition.x = containerLocation.x;
 		gameContainer.trueposition.y = containerLocation.y;
 		var currTeeth =  0;
-		for (var i = 0; i < 9; i++)
-			teeth[i] = [];
+		// for (var i = 0; i < 9; i++)
+			//teeth[i] = [];
 		for (var j = 0; j < numTeeth; j++) {
 			var tooth = document.createElement('div');
 			var id = j.toString();
