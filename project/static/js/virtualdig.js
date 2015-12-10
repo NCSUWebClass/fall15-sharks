@@ -84,16 +84,20 @@
 		document.addEventListener("mouseup", function() {
 			mouseDown = false;
 		});
+		container.addEventListener("mouseenter", function(position) {
+			lastMouse.x = position.pageX;
+			lastMouse.y = position.pageY;
+		});
 		container.addEventListener("mousemove", function(movement) {
 			if (mouseDown) {
 				deltaX = lastMouse.x - movement.pageX;
 				deltaY = lastMouse.y - movement.pageY;
-				lastMouse.x = movement.pageX;
-				lastMouse.y = movement.pageY;
 				gameContainer.position.x += deltaX;
 				gameContainer.position.y += deltaY;
 				this.style.backgroundPosition = gameContainer.position.x + 'px ' + gameContainer.position.y + 'px';
 			}
+			lastMouse.x = movement.pageX;
+			lastMouse.y = movement.pageY;
 		});
 	}
 
