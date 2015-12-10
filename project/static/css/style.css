@@ -5,6 +5,8 @@ body {
 
 /** VIRTUALDIG **/
 div#digarea {
+	width: 3006px;
+	height: 5344px;
 	background-color: #333;
 	text-align: center;
 	overflow: auto;
@@ -12,20 +14,22 @@ div#digarea {
 
 #toggleResults {
 	position: fixed;
-	right: 0%;
-	top: 7%;
+	right: 2%;
+	top: 10%;
+	z-index: 10;
 }
 
 div#digresults {
 	position: fixed;
-	right: 0%;
-	top: 10%;
-	height: 100%;
+	right: 10%;
+	top: 15%;
+	height: 80%;
 	width: 20%;
 	background: deepskyblue;
 	border: solid 3px;
 	border-radius: 5px;
 	overflow: auto;
+	z-index: 10;
 }
 
 div.tooth {
