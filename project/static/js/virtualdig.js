@@ -18,7 +18,7 @@
 	};
 
 	for (var i = 1; i < 24; i++)
-		gameContainer.bgfilenames[i-1] = 'static/img/backgrounds/bg'+i+'.jpg';
+		gameContainer.bgfilenames[i-1] = '/static/img/backgrounds/bg'+i+'.jpg';
 
 	var shovelSounds = {
 		filenames: ['static/sound/shovel_scooping_stones.mp3',
@@ -111,7 +111,7 @@
 					this.style.top = containerLocation.y;
 					this.style.width = gameContainer.size.width + 'px';
 					this.style.height = gameContainer.size.height + 'px';
-					this.style.backgroundImage = gameContainer.bgfilename;
+					this.style.backgroundImage = 'url("'+gameContainer.bgfilename+'")';
 					this.style.backgroundPosition= Math.floor((this.sectionIndex % 3) * 33) + '% ' + Math.floor((this.sectionIndex / 3) * 33) + '%';
 					this.style.backgroundSize = '33% 33%';
 					showTeeth(this.sectionIndex);
