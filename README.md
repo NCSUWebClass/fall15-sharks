@@ -24,12 +24,12 @@ Dr. Terry Gates
 ##### Required
 
 * Python 3   (python3)
-* Sqlite 3   (sqlite3)
+* MySQL
 * pip   (python3-pip)
 
 ##### Optional
 
-* Sqlite browser   (sqlitebrowser)
+* MySQL Workbench
 
 #### Process
 

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3.4
 
 from flask import Flask, render_template, url_for
-from flask.ext.sqlalchemy import SQLAlchemy
 
 import json
 

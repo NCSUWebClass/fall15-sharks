@@ -10,6 +10,7 @@ div#digarea {
 	text-align: center;
 	height: 100%;
 	overflow: scroll;
+	padding-top: 40px;
 }
 
 div#digresults {
@@ -25,6 +26,8 @@ div#game-container {
 	float: none;
 	margin: 0 auto;
 	width: 90%;
+	background-repeat: no-repeat;
+	background-color: #333;
 }
 
 div.tooth {
@@ -38,8 +41,6 @@ div.tooth {
 
 div.game-section {
 	position: absolute;
-	background-image: url("../img/test-sediment.jpg");
-	background-size: cover;
 	z-index: 0;
 }
 
