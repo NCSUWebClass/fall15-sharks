@@ -9,8 +9,7 @@ div#digarea {
 	background-color: #333;
 	text-align: center;
 	height: 100%;
-	overflow: scroll;
-	padding-top: 40px;
+	overflow: auto;
 }
 
 div#digresults {
@@ -19,6 +18,7 @@ div#digresults {
 	background: deepskyblue;
 	border: solid 3px;
 	border-radius: 5px;
+	overflow: auto;
 }
 
 div#game-container {
