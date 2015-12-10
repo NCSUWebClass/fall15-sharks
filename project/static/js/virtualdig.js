@@ -81,7 +81,7 @@
 		container.addEventListener("mousedown", function() {
 			mouseDown = true;
 		});
-		container.addEventListener("mouseup", function() {
+		document.addEventListener("mouseup", function() {
 			mouseDown = false;
 		});
 		container.addEventListener("mousemove", function(movement) {
