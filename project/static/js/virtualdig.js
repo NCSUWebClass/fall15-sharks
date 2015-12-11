@@ -66,8 +66,11 @@ function init() {
 	// Prevent drag and drop on elements, we use dragging for moving screen.
 	// Event will still propogate and bubble up to listeners.
 	var body = document.getElementsByTagName("body")[0];
-	body.addEventListener("dragstart", function() { return false; });
-	body.addEventListener("drop", function() { return false; });
+	body.addEventListener('dragstart', function() { return false; });
+	body.addEventListener('drop', function() { return false; });
+	var bg = document.getElementById('gamebg');
+	bg.addEventListener('dragstart', function() { return false; });
+	bg.addEventListener('drop', function() { return false });
 	setupSounds();
 	setupContainer(gameContainer.id);
 	setupTeeth(gameContainer.id, 15);
@@ -89,6 +92,7 @@ function retrieveTeeth() {
  */
 function setupContainer(containerId) {
 	var container = document.createElement('img');
+	container.id = 'gamebg';
 	container.setAttribute('src', gameContainer.bgfilename);
 	document.getElementById(containerId).appendChild(container);
 }
