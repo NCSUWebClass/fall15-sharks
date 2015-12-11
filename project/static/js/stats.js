@@ -10,7 +10,7 @@ $(document).ready(function() {
 	var min = 16;
 	for (i = 0; i < teethArray.length; i++) {
 		console.log(teethArray[i].measurement);
-		teethNum[teethArray[i].measurement] ++;
+		teethNum[teethArray[i].measurement - 1] ++;
 		if(teethArray[i].measurement < min){
 			min = teethArray[i].measurement;
 		}
@@ -32,7 +32,7 @@ $(document).ready(function() {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(220,220,220,1)",
-			data: [0,0,1/110*15,4/110*15,5/110*15,15/110*15,22/110*15,18/110*15,8/110*15,5/110*15,10/110*15,4/110*15,5/110*15,1/110*15,1/110*15]
+			data: [0,0,5/110*15,5/110*15,15/110*15,22/110*15,18/110*15,8/110*15,5/110*15,10/110*15,4/110*15,5/110*15,1/110*15,1/110*15,0]
 		},
 		{
 			label: "User's Distribution",
