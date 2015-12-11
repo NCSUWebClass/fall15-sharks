@@ -24,8 +24,8 @@ $(document).ready(function() {
             }
         }
 	}
-	document.getElementById('max').innerHTML = max + 'millimeters';
-	document.getElementById('min').innerHTML = min + 'millimeters';
+	document.getElementById('max').innerHTML = max + ' millimeters';
+	document.getElementById('min').innerHTML = min + ' millimeters';
     document.getElementById('difftypes').innerHTML = totaldiff;
 	var ctx = document.getElementById("myChart").getContext("2d");
 	var data = {
