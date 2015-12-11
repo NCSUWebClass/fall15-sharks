@@ -59,6 +59,7 @@ function init() {
 	setupSounds();
 	setupContainer(gameContainer.id);
 	setupTeeth(gameContainer.id, 15);
+	$("#instructions").modal();
 }
 
 /** Retrieve random teeth from database and place in cookie. **/
