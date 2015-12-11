@@ -8,7 +8,7 @@ $(document).ready(function() {
 	teethNum.fill(0);
 	var max = 0;
 	var min = 16;
-    var totaldiff = 0;
+    var totaldiff = 15;
 	for (i = 0; i < teethArray.length; i++) {
 		console.log(teethArray[i].measurement);
 		teethNum[teethArray[i].measurement - 1] ++;
@@ -20,7 +20,7 @@ $(document).ready(function() {
 		}
         for(j = 0; j < teethArray.length; j++){
             if(teethArray[i].imgfilename === teethArray[j].imgfilename && i != j){
-                totaldiff ++;
+                totaldiff --;
             }
         }
 	}
