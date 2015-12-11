@@ -18,7 +18,7 @@ $(document).ready(function() {
 		if(teethArray[i].measurement > max){
 			max = teethArray[i].measurement;
 		}
-        for(j = 0; j < teethArray.length; j++){
+        for(j = i; j < teethArray.length; j++){
             if(teethArray[i].imgfilename === teethArray[j].imgfilename && i != j){
                 totaldiff --;
             }
