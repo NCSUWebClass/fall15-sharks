@@ -15,14 +15,14 @@ div#digarea {
 #toggleResults {
 	position: fixed;
 	right: 2%;
-	top: 10%;
+	top: 60px;
 	z-index: 10;
 }
 
 div#digresults {
 	position: fixed;
-	right: 10%;
-	top: 15%;
+	right: 0%;
+	top: 115px;
 	height: 80%;
 	width: 20%;
 	background: deepskyblue;
