@@ -62,6 +62,8 @@ function playSound() {
 
 /** Initiate game logic */
 function init() {
+	$("#instructions").modal();
+	$.ajaxSetup({async:false});
 	retrieveTeeth();
 	// Prevent drag and drop on elements, we use dragging for moving screen.
 	// Event will still propogate and bubble up to listeners.
@@ -74,12 +76,11 @@ function init() {
 	bg.addEventListener('dragstart', function() { return false; });
 	bg.addEventListener('drop', function() { return false });
 	setupTeeth(gameContainer.id, 15);
-	$("#instructions").modal();
 }
 
 /** Retrieve random teeth from database and place in cookie. **/
 function retrieveTeeth() {
-	$.get("/getTeeth", function(data){
+	$.get("/getTeeth", function(data) {
         var d = new Date();
         d.setTime(d.getTime() + (2*60*60*1000));
         var expires = "expires="+d.toUTCString();
