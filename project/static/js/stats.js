@@ -8,6 +8,7 @@ $(document).ready(function() {
 	teethNum.fill(0);
 	var max = 0;
 	var min = 16;
+    var totaldiff = 0;
 	for (i = 0; i < teethArray.length; i++) {
 		console.log(teethArray[i].measurement);
 		teethNum[teethArray[i].measurement - 1] ++;
@@ -17,9 +18,15 @@ $(document).ready(function() {
 		if(teethArray[i].measurement > max){
 			max = teethArray[i].measurement;
 		}
+        for(j = 0; j < teethArray.length; j++){
+            if(teethArray[i].imgfilename === teethArray[j].imgfilename && i != j){
+                totaldiff ++;
+            }
+        }
 	}
 	document.getElementById('max').innerHTML = max + 'millimeters';
 	document.getElementById('min').innerHTML = min + 'millimeters';
+    document.getElementById('difftypes').innerHTML = totaldiff;
 	var ctx = document.getElementById("myChart").getContext("2d");
 	var data = {
 		labels: ["1 mm", "2 mm", "3 mm", "4 mm", "5 mm", "6 mm", "7 mm", "8 mm", "9 mm", "10 mm", "11 mm", "12 mm", "13 mm", "14 mm", "15 mm"],
