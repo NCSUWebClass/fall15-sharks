@@ -37,9 +37,8 @@ var gameContainer = {
 	bgfilenames: []
 };
 
-for (var i = 1; i < 24; i++)
-	gameContainer.bgfilenames[i-1] = '/static/img/backgrounds/bg'+i+'.jpg';
-gameContainer.bgfilename = gameContainer.bgfilenames[Math.floor(Math.random() * gameContainer.bgfilenames.length)];
+var i = Math.floor(Math.random() * 22) + 1;
+gameContainer.bgfilename = '/static/img/backgrounds/bg'+i+'.jpg';
 
 var shovelSounds = {
 	filenames: ['static/sound/shovel_scooping_stones.mp3',
