@@ -119,8 +119,8 @@ function setupTeeth(containerId, numTeeth) {
 		var measurement = teethData[j].measurement * 11;
 		tooth.style.height = measurement;
 		tooth.style.width = measurement;
-		var originLeft = containerLocation.x + Math.abs(Math.floor(Math.random() * gameContainer.truesize.width) - measurement);
-		var originTop = containerLocation.y + Math.abs(Math.floor(Math.random() * gameContainer.truesize.height) - measurement);
+		var originLeft = Math.abs(containerLocation.x + Math.abs(Math.floor(Math.random() * gameContainer.truesize.width) - measurement));
+		var originTop = Math.abs(containerLocation.y + Math.abs(Math.floor(Math.random() * gameContainer.truesize.height) - measurement));
 		tooth.style.left = originLeft;
 		tooth.style.top = originTop;
 		var degrees = Math.floor(Math.random() * 360);
