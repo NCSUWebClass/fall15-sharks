@@ -18,8 +18,8 @@ $(document).ready(function() {
 			max = teethArray[i].measurement;
 		}
 	}
-	document.getElementById('max').innerHTML(max + 'millimeters');
-	document.getElementById('min').innerHTML(min + 'millimeters');
+	document.getElementById('max').innerHTML = max + 'millimeters';
+	document.getElementById('min').innerHTML = min + 'millimeters';
 	var ctx = document.getElementById("myChart").getContext("2d");
 	var data = {
 		labels: ["1 mm", "2 mm", "3 mm", "4 mm", "5 mm", "6 mm", "7 mm", "8 mm", "9 mm", "10 mm", "11 mm", "12 mm", "13 mm", "14 mm", "15 mm"],
