@@ -68,11 +68,11 @@ function init() {
 	var body = document.getElementsByTagName("body")[0];
 	body.addEventListener('dragstart', function() { return false; });
 	body.addEventListener('drop', function() { return false; });
+	setupSounds();
+	setupContainer(gameContainer.id);
 	var bg = document.getElementById('gamebg');
 	bg.addEventListener('dragstart', function() { return false; });
 	bg.addEventListener('drop', function() { return false });
-	setupSounds();
-	setupContainer(gameContainer.id);
 	setupTeeth(gameContainer.id, 15);
 	$("#instructions").modal();
 }
