@@ -116,7 +116,7 @@ function setupTeeth(containerId, numTeeth) {
 		tooth.className = 'tooth';
 		tooth.id = "tooth" + id;
 		tooth.style.backgroundImage = 'url("/static/img/ProcessedTeethPics/' + teethData[j].imgfilename + '")';
-		var measurement = teethData[j].measurement * 11;
+		var measurement = teethData[j].measurement * 13;
 		tooth.style.height = measurement;
 		tooth.style.width = measurement;
 		var originLeft = Math.abs(containerLocation.x + Math.abs(Math.floor(Math.random() * gameContainer.truesize.width) - measurement));
